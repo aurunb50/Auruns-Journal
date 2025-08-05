@@ -1,0 +1,399 @@
+/* =================================== */
+/*          GLOBAL & BODY STYLES       */
+/* =================================== */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 80px; /* Consistent padding for fixed header */
+    box-sizing: border-box;
+    transition: background-color 0.5s ease, background-image 0.5s ease;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Base font */
+}
+
+/* --- 4-7-8 Page Specific Body & Theme --- */
+body.page-478 {
+    background-image: url('images/clouds.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #2c3e50; /* Default text color for this page */
+    font-family: 'Quicksand', sans-serif; /* Theme-specific font */
+}
+/* Google Font for Quicksand in index.html <head>:
+   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+*/
+
+/* --- Wim Hof Page Specific Body & Theme --- */
+body.page-whm {
+    background-color: #ff7043; /* Energetic solid background */
+    color: #ffffff; /* Default text color for this page */
+    font-family: 'Montserrat', sans-serif; /* Theme-specific font */
+}
+/* Google Font for Montserrat in index_whm.html <head>:
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+*/
+
+/* =================================== */
+/*    HEADER STYLES (Shared Structure, Themed Colors) */
+/* =================================== */
+.site-header {
+    color: white;
+    padding: 15px 0;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
+}
+
+.site-header nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+/* --- 4-7-8 Header Theme --- */
+.page-478 .site-header {
+    background-color: #4a90e2; /* Calming medium blue */
+}
+.page-478 .site-header nav a:hover {
+    background-color: #357abd;
+}
+.page-478 .site-header nav a.active {
+    background-color: #ffffff;
+    color: #357abd;
+    font-weight: 700;
+}
+
+/* --- Wim Hof Header Theme --- */
+.page-whm .site-header {
+    background-color: #d32f2f; /* Strong red */
+}
+.page-whm .site-header nav a:hover {
+    background-color: #b71c1c;
+}
+.page-whm .site-header nav a.active {
+    background-color: #ffffff;
+    color: #b71c1c;
+    font-weight: 700;
+}
+
+/* =================================== */
+/*    APP CONTAINER (SHARED DIMENSIONS, THEMED APPEARANCE) */
+/* =================================== */
+.app-container { /* Base styles for both containers */
+    padding: 30px 35px;
+    border-radius: 15px;
+    max-width: 580px; /* UNIFIED MAX-WIDTH */
+    width: 90%; /* Responsive width */
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- 4-7-8 App Container Theme --- */
+.page-478 .app-container {
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent for cloud bg */
+    border: 1px solid rgba(204, 231, 255, 0.7);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2); /* Softer shadow */
+}
+
+/* --- Wim Hof App Container Theme --- */
+.app-container.whm { /* WHM uses an additional class for its specific container styles */
+    background-color: rgba(46, 49, 54, 0.9);
+    border: 2px solid #ff5722;
+    box-shadow: 0 10px 40px rgba(255, 87, 34, 0.3);
+    /* max-width is inherited from .app-container */
+}
+
+
+/* =================================== */
+/*      H1 STYLES (SHARED BASE, THEMED APPEARANCE) */
+/* =================================== */
+h1 { /* Base for all page titles within app-container */
+    margin-bottom: 25px;
+    font-size: 1.9em; /* Base size */
+    font-weight: 700; /* Base weight */
+}
+
+.page-478 h1 {
+    color: #357abd; /* Calm blue heading */
+    /* Potentially add text-shadow: 0px 1px 2px rgba(255,255,255,0.7); for readability on cloud bg */
+}
+
+.page-whm h1 {
+    color: #ffcc80; /* Light orange/gold for heading */
+    font-size: 2em; /* Slightly larger for WHM */
+    font-weight: 900; /* Bolder font for WHM */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =================================== */
+/*      CONTROLS & BUTTONS (SHARED DIMENSIONS, THEMED APPEARANCE) */
+/* =================================== */
+.controls { /* Base for control sections */
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Default gap */
+}
+.page-whm .controls { /* WHM specific layout adjustments */
+    flex-wrap: wrap;
+    gap: 12px 18px;
+}
+
+.controls label { /* Base label style */
+    font-size: 1em;
+}
+.page-478 .controls label { color: #4a6a8a; }
+.page-whm .controls label { color: #ffcc80; font-weight: 700; }
+
+.controls input[type="number"] { /* Base input style */
+    padding: 10px;
+    border-radius: 8px;
+    width: 60px; /* Unified width */
+    text-align: center;
+    font-size: 1em;
+}
+.page-478 .controls input[type="number"] {
+    border: 1px solid #b0d0f0;
+    background-color: #f0f8ff;
+}
+.page-whm .controls input[type="number"] {
+    border: 2px solid #ff8a65;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-weight: 700;
+}
+.page-whm .controls input[type="number"]::placeholder { color: #ffcc80; }
+
+
+/* Base Button Styles (padding, font-size, etc.) */
+.controls button, #endRetentionButton {
+    padding: 12px 22px; /* UNIFIED PADDING */
+    font-size: 1em;     /* UNIFIED FONT SIZE */
+    border: none;
+    border-radius: 8px; /* UNIFIED BORDER RADIUS */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    font-weight: 500; /* Base weight */
+}
+.controls button:active, #endRetentionButton:active {
+    transform: scale(0.98) translateY(1px); /* Consistent active effect */
+}
+.controls button:disabled, #endRetentionButton:disabled { /* Unified disabled style */
+    background: #bdbdbd !important; /* Use important if needed to override gradients */
+    color: #757575 !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
+}
+
+
+/* --- 4-7-8 Button Themes --- */
+/* Style for the START button on the 4-7-8 page */
+.page-478 .controls #startButton { /* THIS IS VERY SPECIFIC FOR THE START BUTTON */
+    background-color: #87ceeb; /* Sky blue - distinct "start" color */
+    color: #fff;
+}
+.page-478 .controls #startButton:hover { /* Hover for START button */
+    background-color: #76bbd9;
+}
+
+/* Style for the STOP button on the 4-7-8 page */
+.page-478 .controls #stopButton { /* THIS IS VERY SPECIFIC FOR THE STOP BUTTON */
+    background-color: #ffb6c1; /* Light pink - distinct "stop" color */
+    color: #fff;
+}
+.page-478 .controls #stopButton:hover { /* Hover for STOP button */
+    background-color: #f8a4b0;
+}
+/* Disabled state for 4-7-8 buttons is handled by the unified .controls button:disabled rule */
+
+
+/* --- Wim Hof Button Themes --- */
+.page-whm .controls button, .page-whm #endRetentionButton { /* Target WHM buttons more specifically */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 14px 25px; /* WHM buttons can be slightly larger if desired, or keep unified */
+}
+.page-whm #startButtonWimHof {
+    background: linear-gradient(135deg, #ff7043, #ff5722); color: white;
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+}
+.page-whm #startButtonWimHof:hover { background: linear-gradient(135deg, #ff8a65, #ff7043); }
+
+.page-whm #stopButtonWimHof {
+    background: linear-gradient(135deg, #ef5350, #e53935); color: white;
+    box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+}
+.page-whm #stopButtonWimHof:hover { background: linear-gradient(135deg, #e57373, #ef5350); }
+
+.page-whm #endRetentionButton { /* This button is unique to WHM so it keeps its specific styles */
+    background: linear-gradient(135deg, #66bb6a, #4caf50); color: white;
+    margin-top: 15px; /* Specific margin for WHM */
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+.page-whm #endRetentionButton:hover { background: linear-gradient(135deg, #81c784, #66bb6a); }
+/* Disabled state for WHM handled by unified rule above */
+
+
+/* =================================== */
+/*      VISUALIZER & BUBBLE (SHARED BASE DIMENSIONS, THEMED APPEARANCE) */
+/* =================================== */
+.visualizer { margin-bottom: 25px; } /* Consistent margin */
+
+/* Base Bubble Container - can be same or slightly different if content dictates */
+.bubble-container, .bubble-container-whm {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-478 .bubble-container { width: 170px; height: 170px; }
+.page-whm .bubble-container-whm { width: 200px; height: 200px; } /* WHM bubble can be larger */
+
+/* --- 4-7-8 Bubble Theme --- */
+.page-478 .bubble {
+    width: 60px; height: 60px;
+    background-color: #add8e6;
+    border-radius: 50%;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+.page-478 .bubble.inhale { width: 170px; height: 170px; background-color: #cce7ff; transition-duration: 3.8s; }
+.page-478 .bubble.hold { width: 170px; height: 170px; background-color: #e0f0ff; }
+.page-478 .bubble.exhale { width: 60px; height: 60px; background-color: #add8e6; transition-duration: 7.8s; }
+
+/* --- Wim Hof Bubble Theme --- */
+.page-whm .bubble-whm {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    transition: all 0.6s cubic-bezier(0.65, 0.05, 0.36, 1);
+    box-shadow: 0 0 20px rgba(255, 204, 128, 0.5), inset 0 0 10px rgba(255,255,255,0.3);
+}
+.page-whm .bubble-whm.power-inhale { width: 200px; height: 200px; background: radial-gradient(circle, #ffcc80 0%, #ff8a65 100%); }
+.page-whm .bubble-whm.power-exhale { width: 110px; height: 110px; background: radial-gradient(circle, #ffb74d 0%, #ff7043 100%); }
+.page-whm .bubble-whm.retention-prep { width: 70px; height: 70px; background: #d84315; transition-duration: 0.8s; }
+.page-whm .bubble-whm.retention-hold {
+    width: 70px; height: 70px; background: #bf360c;
+    animation: pulse-whm 1.5s infinite ease-in-out;
+    box-shadow: 0 0 30px #ff5722, 0 0 40px #ff7043;
+}
+.page-whm .bubble-whm.recovery-inhale { width: 200px; height: 200px; background: radial-gradient(circle, #fff9c4 0%, #fff176 100%); transition-duration: 0.8s; }
+.page-whm .bubble-whm.recovery-hold { width: 200px; height: 200px; background: radial-gradient(circle, #ffeb3b 0%, #fdd835 100%); }
+
+@keyframes pulse-whm {
+    0% { transform: scale(1); box-shadow: 0 0 30px #ff5722, 0 0 40px #ff7043; }
+    50% { transform: scale(0.9); box-shadow: 0 0 40px #ff8a65, 0 0 50px #ffab91; }
+    100% { transform: scale(1); box-shadow: 0 0 30px #ff5722, 0 0 40px #ff7043; }
+}
+
+/* =================================== */
+/*      TEXT STYLES (INSTRUCTION, TIMER, ETC. - SHARED BASE, THEMED) */
+/* =================================== */
+/* Base for instruction texts */
+#instructionText, #instructionTextWimHof {
+    font-size: 1.6em; /* Base size */
+    font-weight: 500; /* Base weight */
+    min-height: 1.6em; /* Consistent min height */
+}
+.page-478 #instructionText { color: #4a90e2; }
+.page-whm #instructionTextWimHof {
+    font-size: 1.7em; font-weight: 700; color: #ffeb3b;
+    margin-top: 15px; text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Base for timer texts */
+#timerText, #timerTextWimHof {
+    font-size: 2.8em; /* Base size */
+    font-weight: 700; /* Base weight */
+    min-height: 1em; /* Consistent min height */
+}
+.page-478 #timerText { color: #357abd; }
+.page-whm #timerTextWimHof {
+    font-size: 2.6em; /* WHM timer can be slightly different */
+    color: #ffffff; font-weight: 900;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.page-whm #breathCountTextWimHof { /* Unique to WHM */
+    font-size: 2.6em; color: #ffffff; font-weight: 900; min-height: 1em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+
+/* Base for smaller info texts like cycle/round counters */
+#cyclesRemainingText, #roundTextWimHof {
+    font-size: 0.95em; /* Base size */
+}
+.page-478 #cyclesRemainingText { color: #79a0c2; }
+.page-whm #roundTextWimHof {
+    font-size: 1em; color: #ffcc80; margin-top: 8px; font-weight: 700;
+}
+
+
+/* =================================== */
+/*      INSTRUCTION SECTIONS ("HOW TO") */
+/* =================================== */
+.instructions-how-to, .instructions-how-to-whm { /* Base for these sections */
+    margin-top: 30px;
+    text-align: left;
+    border-top-style: solid;
+    border-top-width: 1px;
+    padding-top: 20px;
+    line-height: 1.6; /* Base line height */
+    font-size: 0.9em; /* Base font size */
+}
+.instructions-how-to h2, .instructions-how-to-whm h2 { /* Base for H2 within */
+    font-size: 1.2em; /* Base size */
+    margin-bottom: 10px;
+    font-weight: 700; /* Base weight */
+}
+
+/* --- 4-7-8 "How To" Theme --- */
+.page-478 .instructions-how-to {
+    color: #5a7a9a;
+    border-top-color: #d0e0f0;
+}
+.page-478 .instructions-how-to h2 { color: #357abd; }
+.page-478 .instructions-how-to p { margin-bottom: 5px; }
+
+
+/* --- Wim Hof "How To" & Safety Warning Theme --- */
+.page-whm .safety-warning { /* Unique to WHM */
+    background-color: rgba(255, 236, 179, 0.15);
+    border: 2px solid #ffa726;
+    color: #ffe0b2;
+    padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: left;
+}
+.page-whm .safety-warning p strong { color: #ffb74d; font-size: 1.2em; display: block; text-align: center; margin-bottom: 5px; }
+.page-whm .safety-warning ul { list-style-type: '⚡'; padding-left: 25px; margin:0; }
+.page-whm .safety-warning li { margin-bottom: 6px; }
+
+.page-whm .instructions-how-to-whm {
+    font-size: 0.95em; /* Slightly larger for WHM */
+    color: #ffe0b2;
+    border-top-color: rgba(255, 138, 101, 0.5);
+    line-height: 1.7; /* Slightly more spacing for WHM */
+}
+.page-whm .instructions-how-to-whm h2 {
+    font-size: 1.3em; /* Slightly larger for WHM */
+    color: #ffb74d;
+    text-transform: uppercase;
+}
+.page-whm .instructions-how-to-whm p { margin-bottom: 8px; }

@@ -1,0 +1,46 @@
+// A simple server for handling Text-to-Speech requests securely.
+const express = require('express');
+const textToSpeech = require('@google-cloud/text-to-speech');
+const app = express();
+app.use(express.json()); // Middleware to parse JSON bodies
+app.use(express.static(__dirname)); // Serve your HTML, CSS, and JS files
+
+// Creates a client for the Text-to-Speech API
+const ttsClient = new textToSpeech.TextToSpeechClient();
+
+// The endpoint your frontend will call
+app.post('/api/synthesize', async (req, res) => {
+    try {
+        const { text } = req.body; // Get the text from the request
+
+        if (!text) {
+            return res.status(400).send('No text provided');
+        }
+
+        // Construct the API request
+        const request = {
+            input: { text: text },
+            // Voice selection parameters: language and voice name.
+            // You can find more voices here: https://cloud.google.com/text-to-speech/docs/voices
+            voice: { languageCode: 'en-US', name: 'en-US-Studio-O' },
+            // Select the type of audio encoding
+            audioConfig: { audioEncoding: 'MP3' },
+        };
+
+        // Performs the text-to-speech request
+        const [response] = await ttsClient.synthesizeSpeech(request);
+        
+        // Send the audio back to the frontend
+        res.set('Content-Type', 'audio/mpeg');
+        res.send(response.audioContent);
+
+    } catch (error) {
+        console.error('ERROR:', error);
+        res.status(500).send('Error synthesizing speech');
+    }
+});
+
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
