@@ -6,37 +6,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('startButton');
     const stopButton = document.getElementById('stopButton');
     const cyclesRemainingText = document.getElementById('cyclesRemainingText');
-    const voiceSelect = document.getElementById('voiceSelect');
     
-    let voices = [];
+    // --- NEW: Audio Cues ---
+    // These files must exist in an 'audio' folder with these exact names.
+    const audioCues = {
+        getReady: new Audio('audio/get_ready.mp3'),
+        inhale: new Audio('audio/inhale.mp3'),
+        hold: new Audio('audio/hold.mp3'),
+        exhale: new Audio('audio/exhale.mp3')
+    };
+
     let phaseTimeoutId, countdownIntervalId;
     let isRunning = false, currentCycle = 0, totalCycles = 0;
 
     const DURATION = { INHALE: 4, HOLD: 7, EXHALE: 8, PREPARE: 2 };
 
-    function populateVoiceList() {
-        voices = window.speechSynthesis.getVoices();
-        voiceSelect.innerHTML = '';
-        voices.filter(v => v.lang.startsWith('en')).forEach((voice) => {
-            const option = document.createElement('option');
-            option.textContent = `${voice.name} (${voice.lang})`;
-            option.setAttribute('data-name', voice.name);
-            voiceSelect.appendChild(option);
-        });
-    }
-
-    function speak(text) {
-        if (!'speechSynthesis' in window) return;
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(text);
-        const selectedVoiceName = voiceSelect.selectedOptions[0].getAttribute('data-name');
-        utterance.voice = voices.find(v => v.name === selectedVoiceName);
-        window.speechSynthesis.speak(utterance);
-    }
-
-    populateVoiceList();
-    if (speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = populateVoiceList;
+    // --- NEW: Function to play pre-recorded audio files ---
+    function playAudio(cue) {
+        if (audioCues[cue]) {
+            // Stop any other audio that might be playing to prevent overlap
+            Object.values(audioCues).forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+            audioCues[cue].play().catch(e => console.error("Error playing audio:", e));
+        }
     }
 
     function updateTimer(seconds) {
@@ -49,43 +43,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
+    // --- UPDATED: runPhase now takes an audio cue key ---
     function runPhase(name, duration, nextPhaseFn, bubbleClass, audioCue) {
         if (!isRunning) return;
         instructionText.textContent = name;
-        speak(audioCue);
+        if (audioCue) {
+            playAudio(audioCue); // Replaced speak() with playAudio()
+        }
         bubble.className = 'bubble ' + bubbleClass;
         updateTimer(duration);
         clearTimeout(phaseTimeoutId);
         phaseTimeoutId = setTimeout(nextPhaseFn, duration * 1000);
     }
 
-    const inhale = () => runPhase('Inhale...', DURATION.INHALE, hold, 'inhale', 'Inhale');
-    const hold = () => runPhase('Hold...', DURATION.HOLD, exhale, 'hold', 'Hold');
+    // --- UPDATED: Phase functions now pass the key for the audio file ---
+    const inhale = () => runPhase('Inhale...', DURATION.INHALE, hold, 'inhale', 'inhale');
+    const hold = () => runPhase('Hold...', DURATION.HOLD, exhale, 'hold', 'hold');
     const exhale = () => runPhase('Exhale...', DURATION.EXHALE, () => {
         currentCycle++;
         currentCycle < totalCycles ? prepareNextCycle() : finishExercise();
-    }, 'exhale', 'Exhale');
+    }, 'exhale', 'exhale');
     const prepareNextCycle = () => {
         updateCyclesRemaining();
-        runPhase('Prepare...', DURATION.PREPARE, inhale, '', '');
+        runPhase('Prepare...', DURATION.PREPARE, inhale, '', null); // No sound for "Prepare"
     };
     
     function startExercise() {
         isRunning = true;
         totalCycles = parseInt(cyclesInput.value, 10);
         currentCycle = 0;
-        startButton.disabled = true; stopButton.disabled = false; cyclesInput.disabled = true; voiceSelect.disabled = true;
+        startButton.disabled = true; stopButton.disabled = false; cyclesInput.disabled = true;
         updateCyclesRemaining();
-        runPhase('Get Ready...', DURATION.PREPARE, inhale, '', 'Get ready');
+        // --- UPDATED: Pass 'getReady' as the audio cue ---
+        runPhase('Get Ready...', DURATION.PREPARE, inhale, '', 'getReady');
     }
     
+    // --- UPDATED: stopExercise now stops audio files ---
     function stopExercise(isFinished = false) {
         isRunning = false;
         clearTimeout(phaseTimeoutId);
         clearInterval(countdownIntervalId);
-        window.speechSynthesis.cancel();
+        
+        // Stop any playing audio
+        Object.values(audioCues).forEach(audio => {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+
         bubble.className = 'bubble';
-        startButton.disabled = false; stopButton.disabled = true; cyclesInput.disabled = false; voiceSelect.disabled = false;
+        startButton.disabled = false; stopButton.disabled = true; cyclesInput.disabled = false;
         
         if (isFinished) {
             instructionText.textContent = 'Well Done! Exercise Complete.';
