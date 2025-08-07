@@ -1,0 +1,837 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7; 
+    color: #333; 
+    background-color: #fdfdff; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === Header & Navigation === */
+.site-header {
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff; 
+    position: sticky; 
+    top: 0;
+    z-index: 100; 
+}
+
+.site-header .container {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.banner-container {
+    width: 100%; 
+    max-height: 50px; 
+    overflow: hidden; 
+    line-height: 0; 
+    background-color: #f0f0f0; 
+}
+
+.banner-image {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    object-fit: cover; 
+    object-position: center; 
+}
+
+.logo-container .logo-image {
+    height: 100px; 
+    width: auto;  
+    display: block;
+}
+
+.main-nav ul {
+    list-style: none; 
+    display: flex;
+    gap: 0; /* Remove gap, manage with padding on items */
+    align-items: center; /* Align items vertically */
+}
+.main-nav ul li {
+    position: relative; /* For dropdown positioning */
+}
+
+.main-nav a, .main-nav .dropdown-trigger { /* Apply to both links and dropdown triggers */
+    text-decoration: none;
+    color: #555; 
+    font-weight: 500;
+    font-size: 1em;
+    padding: 10px 15px; /* Add padding for better click/hover area */
+    display: block; /* Make the whole area clickable */
+    transition: color 0.3s ease, background-color 0.3s ease; 
+}
+
+.main-nav a:hover,
+.main-nav a.active,
+.main-nav .dropdown-trigger:hover,
+.dropdown-container:hover .dropdown-trigger { 
+    color: #0071e3; 
+    background-color: #f0f8ff; /* Light blue background on hover/active */
+}
+.main-nav .dropdown-trigger .arrow-down {
+    font-size: 0.7em;
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+.dropdown-container:hover .dropdown-trigger .arrow-down {
+    transform: rotate(180deg);
+}
+
+
+/* === Dropdown Menu === */
+.dropdown-container {
+    position: relative;
+}
+.dropdown-menu {
+    list-style: none;
+    position: absolute;
+    top: 100%; /* Position below the parent */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-top: none; /* Avoid double border with parent's bottom */
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    min-width: 200px; /* Minimum width of dropdown */
+    z-index: 110; /* Above other header content */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+}
+.dropdown-container:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.dropdown-menu li a.dropdown-item {
+    padding: 12px 20px;
+    font-size: 0.95em;
+    color: #444;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+.dropdown-menu li a.dropdown-item:hover {
+    background-color: #e9f5ff; /* Light blue */
+    color: #0071e3;
+}
+
+
+/* === Main Content Area === */
+.main-content {
+    padding: 40px 0; 
+}
+
+/* === Styles for Pages without a main site-header === */
+.main-content.no-header-page,
+.main-content.resume-subpage {
+    padding-top: 30px; /* Add space at the top if header is removed */
+}
+.subpage-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.subpage-header.compact-header {
+    text-align: left; /* For contact page back link */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: none;
+}
+
+.subpage-header h1 { /* For resume subpages, name display */
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 0.15em;
+    color: #1a1a1a;
+}
+.subpage-header .contact-info {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+}
+.subpage-header .contact-info a {
+    color: #0071e3;
+}
+.back-to-home-link {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #0071e3;
+    text-decoration: none;
+    font-weight: 500;
+}
+.back-to-home-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Specific padding for resume page (now subpages) */
+.main-content.resume-page, /* Keeping this if it's still used by old resume.html, but likely not needed */
+.main-content.resume-subpage { /* Apply to new subpages */
+    padding-top: 10px; /* Adjusted as subpage-header adds its own margin */
+    padding-bottom: 30px;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 80px 0;
+}
+.hero-section h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+}
+.hero-section .subtitle {
+    font-size: 1.25em;
+    color: #555;
+    max-width: 720px; 
+    margin: 0 auto 1.8em auto; 
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-flex; /* Changed to inline-flex for icon alignment */
+    align-items: center; /* Vertically align icon and text */
+    justify-content: center; /* Center content within button */
+    padding: 14px 30px;
+    border: none;
+    border-radius: 25px; 
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+.btn:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+.btn-primary { background-color: #0071e3; color: #fff; }
+.btn-primary:hover { background-color: #0077ed; }
+.btn-secondary { background-color: #e8e8e8; color: #333; }
+.btn-secondary:hover { background-color: #dddddd; }
+
+/* Styles for buttons with icons */
+.btn-icon {
+    width: 18px; /* Adjust size as needed */
+    height: 18px;
+    margin-right: 10px; /* Space between icon and text */
+    vertical-align: middle; /* Helps with alignment in some cases */
+}
+.btn-primary .btn-icon { /* If you want icons in primary buttons to be white */
+    filter: brightness(0) invert(1);
+}
+/* Secondary button icons are typically dark, so no filter needed unless SVG is light */
+
+
+.resume-page .container, /* Old resume page container, if still used */
+.resume-subpage .container { /* New subpage container */
+    max-width: 1000px; 
+}
+
+.resume-section {
+    padding: 25px 0; 
+}
+.resume-section:last-child {
+    padding-bottom: 0;
+}
+
+/* Resume Header on subpages is now .subpage-header */
+/* The .resume-header class might be unused now or only on a full resume page if you keep one */
+.resume-header {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px; 
+    margin-bottom: 20px; 
+}
+.resume-header h1 {
+    font-size: 2.8em; 
+    font-weight: 700; 
+    margin-bottom: 0.25em;
+    color: #1a1a1a; 
+}
+.resume-header .contact-info {
+    font-size: 1em;
+    color: #555; 
+    margin-bottom: 1.2em;
+    line-height: 1.6;
+}
+.resume-header .contact-info a {
+    color: #0071e3;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.resume-header .contact-info a:hover {
+    color: #0056b3; 
+    text-decoration: underline;
+}
+
+.resume-section h2 { 
+    font-size: 1.8em; 
+    font-weight: 700; 
+    color: #222;
+    margin-bottom: 1.8em; 
+    padding-bottom: 0.5em; 
+    border-bottom: 3px solid #0071e3; 
+    display: inline-block; 
+}
+
+.resume-item { 
+    margin-bottom: 2.5em; 
+    background-color: #ffffff; 
+    border: 1px solid #e6e6e6; 
+    border-radius: 8px; 
+    padding: 25px; 
+    box-shadow: 0 3px 8px rgba(0,0,0,0.06); 
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.resume-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+}
+.resume-item:last-child {
+    margin-bottom: 0.5em; 
+}
+.resume-item h3 { 
+    font-size: 1.3em; 
+    font-weight: 600;
+    color: #0056b3; 
+    margin-bottom: 0.3em;
+}
+.resume-item .institution,
+.resume-item .dates {
+    font-size: 1em;
+    color: #555; 
+    margin-bottom: 0.4em;
+}
+.resume-item .dates {
+    font-style: italic;
+}
+
+.course-groups {
+    margin-top: 1.5em; 
+    padding-left: 5px; 
+}
+.course-groups p strong { 
+    display: block;
+    margin-bottom: 1.2em;
+    font-weight: 600;
+    color: #333;
+    font-size: 1.05em;
+}
+.course-groups h4 { 
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #0071e3; 
+    margin-top: 1.5em; 
+    margin-bottom: 0.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #e0e0e0; 
+}
+.course-groups h4:first-of-type {
+    margin-top: 0.5em;
+}
+.course-groups ul {
+    list-style: none; 
+    padding-left: 15px; 
+    margin-bottom: 1.5em; 
+}
+.course-groups li {
+    margin-bottom: 1em; 
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #444;
+}
+.course-groups li strong { 
+    font-weight: 600;
+    color: #222;
+    display: block; 
+    margin-bottom: 0.2em;
+}
+
+.course-details-container {
+    margin-top: 1.2em; 
+    margin-bottom: 1em;
+    background-color: transparent; 
+    border: none; 
+    border-radius: 0;
+}
+.course-summary { 
+    display: inline-flex; 
+    align-items: center;
+    padding: 10px 18px;
+    font-weight: 500;
+    color: #0056b3; 
+    background-color: #e9f5ff; 
+    cursor: pointer;
+    list-style: none; 
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    border-radius: 20px; 
+    border: 1px solid #cce7ff; 
+    box-shadow: 0 1px 2px rgba(0,86,179,0.1);
+}
+.course-summary:hover {
+    background-color: #d6ecff;
+    color: #004080;
+    box-shadow: 0 2px 4px rgba(0,86,179,0.15);
+    transform: translateY(-1px);
+}
+.course-summary .summary-text {
+    margin-left: 8px;
+}
+.course-summary::before {
+    content: '›'; 
+    display: inline-block;
+    font-size: 1.6em; 
+    line-height: 1;
+    color: #0071e3; 
+    transition: transform 0.3s ease; 
+    font-weight: bold;
+}
+details[open] > .course-summary::before {
+    transform: rotate(90deg);
+}
+details[open] > .course-summary {
+    background-color: #d6ecff;
+    color: #004080;
+}
+details[open] > .course-groups {
+    padding: 1.5em 15px 5px 15px; 
+    border-top: 1px solid #e0e0e0;
+    margin-top: 15px; 
+}
+
+.resume-item .details-list { 
+    list-style-type: none; 
+    padding-left: 5px; 
+    margin-top: 0.8em;
+}
+.resume-item .details-list li {
+    position: relative;
+    padding-left: 22px; 
+    margin-bottom: 0.9em; 
+    line-height: 1.7;
+    color: #444;
+}
+.resume-item .details-list li::before {
+    content: '▪'; 
+    position: absolute;
+    left: 0;
+    top: 0px; 
+    color: #0071e3; 
+    font-size: 1.2em; 
+    font-weight: normal;
+}
+
+.skills-list { 
+    margin-top: 0.8em;
+}
+.skills-list div { 
+    display: grid;
+    grid-template-columns: 200px 1fr; 
+    gap: 20px; 
+    margin-bottom: 1.4em; 
+    align-items: start; 
+    padding: 10px 0; 
+    border-bottom: 1px dashed #eee; 
+}
+.skills-list div:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.skills-list dt { 
+    font-weight: 600;
+    color: #0056b3; 
+    text-align: right; 
+    padding-right: 20px; 
+    font-size: 1.05em;
+}
+.skills-list dd { 
+    color: #444;
+    margin-left: 0; 
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.history-list {
+    list-style: none;
+    padding-left: 0;
+}
+.history-list li {
+    margin-bottom: 1.2em; 
+    color: #444;
+    padding: 10px;
+    border-left: 3px solid #0071e3; 
+    background-color: #f9f9f9; 
+    border-radius: 0 4px 4px 0;
+}
+.history-list li span {
+    display: block; 
+}
+.history-list .history-job {
+    font-weight: 600; 
+    color: #222; 
+    font-size: 1.05em;
+    margin-bottom: 0.1em;
+}
+.history-list .history-location {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 0.2em;
+}
+.history-list .history-date {
+    font-size: 0.9em; 
+    color: #555;
+    font-style: italic;
+}
+
+/* === Contact Page Styles === */
+.contact-page h1 {
+    text-align: center;
+    margin-bottom: 0.3em;
+}
+.contact-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 1.5em; /* Adjusted margin */
+    font-size: 1.1em;
+}
+
+.social-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between social buttons */
+    margin-bottom: 2.5em; /* Space below social buttons, before form */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+.btn-social { /* Specific styling for social buttons if needed, inherits .btn */
+    min-width: 220px; /* Ensure buttons have a decent width */
+}
+
+
+.contact-section {
+    margin-bottom: 1.5em; 
+    padding: 20px; 
+    border-bottom: 1px solid #eee; 
+    background-color: #fff; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.contact-section:last-of-type {
+     border-bottom: none; 
+     margin-bottom: 0;
+}
+.contact-section h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #0071e3; 
+    margin-bottom: 1em; 
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid #e0e0e0; 
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #444;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc; 
+    border-radius: 6px;
+    font-family: inherit; 
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fdfdfd; 
+}
+.form-group textarea {
+    resize: vertical; 
+    min-height: 120px;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #0071e3; 
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15); 
+    background-color: #fff;
+}
+#contactForm button[type="submit"] {
+    margin-top: 1em;
+}
+
+.connect-list {
+    list-style: none;
+    padding-left: 0;
+}
+.connect-list li {
+    margin-bottom: 0.8em;
+    font-size: 1.05em;
+    color: #444;
+    padding: 8px 0;
+}
+.connect-list li strong {
+    font-weight: 600;
+    margin-right: 8px;
+    color: #333;
+}
+.connect-list li a {
+    color: #0071e3;
+    text-decoration: none;
+}
+.connect-list li a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.map-container {
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+    margin-bottom: 1em;
+}
+.map-container iframe {
+    display: block; 
+    border: none; 
+}
+.location-section p { 
+    text-align: center;
+    color: #666;
+    font-size: 0.95em;
+}
+
+/* === Footer === */
+.site-footer {
+    background-color: #f0f2f5; 
+    padding: 40px 0;
+    margin-top: 30px; 
+    border-top: 1px solid #d9dde0; 
+    text-align: center;
+    font-size: 0.9em;
+    color: #555; 
+}
+.footer-links {
+    margin-bottom: 15px;
+}
+.footer-links a {
+    color: #444; 
+    text-decoration: none;
+    margin: 0 12px; 
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: #0071e3;
+}
+.footer-links span { 
+    margin: 0 12px;
+    color: #444;
+}
+.copyright {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* === Responsive Design === */
+@media (max-width: 992px) { 
+    .skills-list div {
+        grid-template-columns: 180px 1fr; 
+        gap: 15px;
+    }
+    .skills-list dt {
+        padding-right: 15px;
+    }
+    .main-nav ul {
+        gap: 5px; /* Reduce gap for tighter nav items */
+    }
+    .main-nav a, .main-nav .dropdown-trigger {
+        padding: 10px 12px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 768px) { 
+    body {
+        line-height: 1.65; 
+    }
+    .site-header {
+        padding: 0; 
+        position: static; 
+    }
+    .site-header .container {
+        flex-direction: column; 
+        gap: 0; 
+        padding: 10px 0 0 0; 
+    }
+    .logo-container { /* Center logo */
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .logo-container .logo-image {
+        height: 80px; /* Smaller logo */
+        margin: 0 auto;
+    }
+    .main-nav {
+        width: 100%;
+        border-top: 1px solid #e0e0e0;
+    }
+    .main-nav ul {
+        justify-content: space-around; /* Distribute nav items */
+        flex-wrap: nowrap; /* Prevent wrapping for primary items */
+        gap: 0;
+    }
+    .main-nav ul li {
+        flex-grow: 1; /* Allow items to take available space */
+        text-align: center; /* Center text in nav items */
+    }
+    .main-nav a, .main-nav .dropdown-trigger {
+        padding: 12px 5px; /* Adjust padding */
+        font-size: 0.9em;
+    }
+     .dropdown-menu { /* Make dropdown full width on mobile */
+        left: 0;
+        right: 0;
+        min-width: auto;
+        width: 100%;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .dropdown-menu li a.dropdown-item {
+        text-align: center;
+    }
+
+
+    .hero-section { padding: 60px 0; }
+    .hero-section h1 { font-size: 2.2em; } /* Adjusted for smaller screens */
+    .hero-section .subtitle { font-size: 1.1em; } /* Adjusted */
+
+    .resume-header h1, .subpage-header h1 { font-size: 2em; } /* Adjusted */
+    .resume-section h2 { font-size: 1.5em; margin-bottom: 1.2em; } /* Adjusted */
+    .resume-item { padding: 15px; } /* Adjusted */
+    .resume-item h3 { font-size: 1.15em; } /* Adjusted */
+
+    .skills-list div {
+        grid-template-columns: 1fr; 
+        gap: 10px;
+        padding: 10px 5px;
+    }
+    .skills-list dt { 
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 1px solid #ddd; 
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+        padding-right: 0;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; 
+    }
+    .footer-links span,
+    .footer-links a {
+        margin: 0; 
+    }
+    .social-cta-buttons {
+        gap: 10px;
+        margin-bottom: 2em;
+    }
+    .btn-social {
+        min-width: 180px; /* Adjust for smaller screens */
+        width: 80%; /* Allow them to take more width if stacked */
+        max-width: 250px;
+    }
+
+}
+
+@media (max-width: 480px) { 
+     body {
+        font-size: 15px; 
+     }
+    .container {
+        width: 95%; 
+    }
+     .hero-section { padding: 40px 0; }
+     .hero-section h1 { font-size: 1.8em; } /* Further adjust */
+    .hero-section .subtitle { font-size: 1em; } /* Further adjust */
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .btn { 
+        width: 90%;
+        max-width: 300px; 
+        padding: 12px 20px;
+        font-size: 0.95em; /* Slightly smaller button text */
+        /* text-align: center; -- already handled by justify-content: center */
+    }
+    .resume-header h1, .subpage-header h1 { font-size: 1.8em; } /* Further adjust */
+    .resume-section h2 { font-size: 1.3em; } /* Further adjust */
+    .resume-item h3 { font-size: 1.1em; } /* Further adjust */
+
+    .course-summary { padding: 8px 15px; font-size: 0.95em; }
+    .course-summary .summary-text { margin-left: 6px; }
+    .course-summary::before { font-size: 1.4em; }
+
+    .course-groups h4 { font-size: 1em; } /* Adjusted */
+    .course-groups li { font-size: 0.9em; }
+
+    .history-list li {
+        padding: 8px;
+        padding-left: 12px; 
+    }
+    .main-nav a, .main-nav .dropdown-trigger {
+        font-size: 0.85em; /* Smaller font for very small screens */
+    }
+    .social-cta-buttons {
+        flex-direction: column; /* Stack social buttons on very small screens */
+        align-items: center;
+    }
+    .btn-social {
+        width: 100%; /* Full width when stacked */
+        max-width: 280px;
+    }
+    .btn-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+    }
+}
