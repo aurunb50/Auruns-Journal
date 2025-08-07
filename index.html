@@ -3,283 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Wellness Journey | Fitness & Portfolio</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
+    <title>Aurun Bhattarai - Portfolio</title>
+    <link rel="stylesheet" href="../css/css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Custom styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-        }
-        /* Hide sections by default */
-        .page-section { display: none; }
-        /* Show the active section */
-        .page-section.active { display: block; }
-        /* Simple animation for page transitions */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .active { animation: fadeIn 0.5s ease-in-out; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="text-slate-800">
+<body>
 
-    <!-- App Container -->
-    <div class="container mx-auto max-w-5xl p-4 sm:p-6 lg:p-8">
-
-        <!-- Header -->
-        <header class="bg-white rounded-xl shadow-md p-6 mb-8">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                <div>
-                    <h1 class="text-3xl font-bold text-slate-900">My Wellness Journey</h1>
-                    <p class="text-slate-500 mt-1">Fitness, Focus, and Forward Momentum.</p>
-                </div>
-                <nav class="mt-4 sm:mt-0 flex flex-wrap gap-2">
-                    <button onclick="showPage('home')" class="nav-link text-slate-600 hover:text-blue-600 font-medium px-3 py-2 rounded-md">Home</button>
-                    <button onclick="showPage('plan')" class="nav-link text-slate-600 hover:text-blue-600 font-medium px-3 py-2 rounded-md">Workout Plan</button>
-                    <button onclick="showPage('progress')" class="nav-link text-slate-600 hover:text-blue-600 font-medium px-3 py-2 rounded-md">Track Progress</button>
-                    <a href="index_meditation_478.html" class="nav-link bg-teal-50 text-teal-700 hover:bg-teal-100 font-medium px-3 py-2 rounded-md transition-colors">
-                        <i class="fas fa-brain mr-1"></i> Meditation Suite
-                    </a>
-                </nav>
+    <header class="site-header">
+         <div class="banner-container">
+            <!-- src="im" alt="Website Banner" class="banner-image"> -->  
+        </div>
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                     <!--<img src="images/SVGAURUN.svg" alt="Aurun Bhattarai - Logo" class="logo-image"> -->
+                </a>
             </div>
-             <div class="text-xs text-slate-400 mt-4 border-t pt-2">
-                User ID: <span id="userId" class="font-mono">Loading...</span>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="nav-item dropdown-container">
+                        <a href="#" class="nav-link dropdown-trigger">Resume <span class="arrow-down">▾</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="education.html" class="dropdown-item">Education</a></li>
+                            <li><a href="experience.html" class="dropdown-item">Relevant Experience</a></li>
+                            <li><a href="skills.html" class="dropdown-item">Skills</a></li>
+                            <li><a href="history.html" class="dropdown-item">Experience History</a></li>
+                            <!-- Optional: You could add a link to a downloadable PDF resume here -->
+                            <!-- <li><a href="AurunBhattarai_Resume.pdf" target="_blank" class="dropdown-item">Download PDF</a></li> -->
+                        </ul>
+                    </li>
+                    <li><a href="contactpage.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section"> 
+            <div class="container">     
+                 <h1>IT Professional. Problem Solver. Lifelong Learner.</h1>
+                 <p class="subtitle">
+                    Passionate about leveraging technology to create seamless user experiences and solve complex problems. Eager to apply technical skills and a strong work ethic to new challenges in IT Administration and Business Technology.
+                </p>
+                <div class="cta-buttons">
+                    <a href="education.html" class="btn btn-primary">View Resume Sections</a>
+                    <a href="contactpage.html" class="btn btn-secondary">Get In Touch</a>
+                </div>
             </div>
-        </header>
+        </section>
+    </main>
 
-        <!-- Main Content -->
-        <main>
-            <!-- Home Page: Blog Posts / Resume -->
-            <section id="home" class="page-section">
-                <h2 class="text-2xl font-bold mb-6">Latest Posts</h2>
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Sample Blog Post 1 -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x400/3498db/ffffff?text=Getting+Started" alt="Man tying shoelaces" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">My First Step: Committing to This 90-Day Plan</h3>
-                            <p class="text-slate-600 text-sm mb-4">It all starts with a single decision. Here's why I'm committing and what I hope to achieve.</p>
-                            <a href="#" class="text-blue-600 font-semibold hover:underline">Read More →</a>
-                        </div>
-                    </div>
-                    <!-- Sample Blog Post 2 -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x400/2ecc71/ffffff?text=Week+1" alt="Happy after workout" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">Week 1 Check-In: The Good, The Bad, and The Very Sore</h3>
-                            <p class="text-slate-600 text-sm mb-4">The first week is in the books. It was tough, rewarding, and my muscles are feeling it.</p>
-                            <a href="#" class="text-blue-600 font-semibold hover:underline">Read More →</a>
-                        </div>
-                    </div>
-                    <!-- This could be your Resume/Education -->
-                    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <img src="https://placehold.co/600x400/9b59b6/ffffff?text=My+Resume" alt="Document icon" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">My Professional Background & Education</h3>
-                            <p class="text-slate-600 text-sm mb-4">A look into my skills, experience, and the education that shaped my career.</p>
-                            <a href="#" class="text-purple-600 font-semibold hover:underline">View Resume →</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <footer class="site-footer">
+        <div class="container">
+             <div class="footer-links">
+                <a href="https://www.linkedin.com/in/aurunb" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+                <a href="https://www.instagram.com/callmeab50/" target="_blank" rel="noopener noreferrer">Instagram</a> |
+                <a href="mailto:Aurunb50@gmail.com">Aurunb50@gmail.com</a> |
+                <span>519-400-7494</span>
+            </div>
+            <p class="copyright">© 2025 Aurun Bhattarai. Located in Windsor, Ontario.</p>
+        </div>
+    </footer>
 
-            <!-- Workout Plan Page -->
-            <section id="plan" class="page-section">
-                <h2 class="text-2xl font-bold mb-6">My 4-Week Beginner Plan</h2>
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <p class="mb-6 text-slate-600">A 3-day split focusing on main compound lifts to build a solid foundation. I train on Monday, Wednesday, and Friday.</p>
-                    <div class="space-y-6">
-                        <div>
-                            <h3 class="text-xl font-semibold text-blue-700 border-b pb-2 mb-3">Day 1: Push (Chest, Shoulders, Triceps)</h3>
-                            <ul class="list-disc list-inside space-y-2 text-slate-700">
-                                <li>Bench Press: 3 sets of 8-10 reps</li>
-                                <li>Overhead Press: 3 sets of 8-10 reps</li>
-                                <li>Incline Dumbbell Press: 3 sets of 10-12 reps</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-green-700 border-b pb-2 mb-3">Day 2: Pull (Back, Biceps)</h3>
-                            <ul class="list-disc list-inside space-y-2 text-slate-700">
-                                <li>Deadlifts: 3 sets of 5-8 reps</li>
-                                <li>Pull-Ups (or Lat Pulldowns): 3 sets to failure</li>
-                                <li>Bent-Over Rows: 3 sets of 8-10 reps</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-red-700 border-b pb-2 mb-3">Day 3: Legs</h3>
-                            <ul class="list-disc list-inside space-y-2 text-slate-700">
-                                <li>Squats: 3 sets of 8-10 reps</li>
-                                <li>Romanian Deadlifts: 3 sets of 10-12 reps</li>
-                                <li>Leg Press: 3 sets of 10-12 reps</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Progress Tracker Page -->
-            <section id="progress" class="page-section">
-                <h2 class="text-2xl font-bold mb-6">Progress Tracker</h2>
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- Form to add new workout -->
-                    <div class="lg:col-span-1">
-                        <div class="bg-white rounded-xl shadow-md p-6 sticky top-8">
-                            <h3 class="text-xl font-semibold mb-4">Log a Workout</h3>
-                            <form id="progress-form" class="space-y-4">
-                                <div>
-                                    <label for="exercise" class="block text-sm font-medium text-slate-700">Exercise</label>
-                                    <input type="text" id="exercise" name="exercise" required class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2">
-                                </div>
-                                <div>
-                                    <label for="weight" class="block text-sm font-medium text-slate-700">Weight (kg)</label>
-                                    <input type="number" id="weight" name="weight" required class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2">
-                                </div>
-                                <div>
-                                    <label for="reps" class="block text-sm font-medium text-slate-700">Reps</label>
-                                    <input type="number" id="reps" name="reps" required class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm p-2">
-                                </div>
-                                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
-                                    <i class="fas fa-plus-circle mr-2"></i>Add Log
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- List of logged workouts -->
-                    <div class="lg:col-span-2">
-                        <div id="logs-container" class="bg-white rounded-xl shadow-md p-6">
-                            <h3 class="text-xl font-semibold mb-4">My Workout Logs</h3>
-                            <div id="logs-list" class="space-y-4">
-                                <!-- Logs will be dynamically inserted here -->
-                                <div id="loading-logs" class="text-center text-slate-500 py-8">
-                                    <i class="fas fa-spinner fa-spin fa-2x"></i>
-                                    <p class="mt-2">Connecting to database...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        
-        <footer class="text-center mt-12 text-slate-500 text-sm">
-            <p>© 2024 My Wellness Journey. All rights reserved.</p>
-        </footer>
-    </div>
-
-    <!-- Firebase SDK - Replace with your own config -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, query, onSnapshot, orderBy, serverTimestamp, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        
-        // --- IMPORTANT: REPLACE WITH YOUR FIREBASE CONFIG ---
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
-        
-        let db, auth, currentUserId;
-
-        // --- Page Navigation ---
-        window.showPage = (pageId) => {
-            document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-        };
-
-        // --- Firestore Logic ---
-        const logsList = document.getElementById('logs-list');
-        const loadingIndicator = document.getElementById('loading-logs');
-        const progressForm = document.getElementById('progress-form');
-
-        function renderLog(logData) {
-            const log = logData.data();
-            const logId = logData.id;
-            const div = document.createElement('div');
-            div.className = 'bg-slate-50 p-4 rounded-lg flex justify-between items-center border border-slate-200';
-            const date = log.createdAt ? log.createdAt.toDate().toLocaleDateString() : 'Just now';
-            div.innerHTML = `
-                <div>
-                    <p class="font-bold text-slate-800">${log.exercise}</p>
-                    <p class="text-sm text-slate-600">${log.reps} reps @ ${log.weight}kg</p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <span class="text-xs text-slate-400 font-mono">${date}</span>
-                    <button class="delete-btn text-red-400 hover:text-red-600" data-id="${logId}"><i class="fas fa-trash"></i></button>
-                </div>`;
-            return div;
-        }
-
-        function getLogs() {
-            if (!db || !currentUserId) return;
-            const q = query(collection(db, 'users', currentUserId, 'workouts'), orderBy('createdAt', 'desc'));
-
-            onSnapshot(q, (snapshot) => {
-                loadingIndicator.style.display = 'none';
-                logsList.innerHTML = ''; 
-                if (snapshot.empty) {
-                    logsList.innerHTML = '<p class="text-center text-slate-500">No workouts logged yet. Add one!</p>';
-                } else {
-                    snapshot.forEach(doc => logsList.appendChild(renderLog(doc)));
-                }
-            });
-        }
-
-        progressForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            if (!db || !currentUserId) return;
-            await addDoc(collection(db, 'users', currentUserId, 'workouts'), {
-                exercise: progressForm.exercise.value,
-                weight: Number(progressForm.weight.value),
-                reps: Number(progressForm.reps.value),
-                createdAt: serverTimestamp(),
-            });
-            progressForm.reset();
-        });
-        
-        logsList.addEventListener('click', async (e) => {
-            const deleteBtn = e.target.closest('.delete-btn');
-            if (deleteBtn) {
-                const logId = deleteBtn.dataset.id;
-                if (confirm("Delete this log?")) {
-                    await deleteDoc(doc(db, 'users', currentUserId, 'workouts', logId));
-                }
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            try {
-                const app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-
-                onAuthStateChanged(auth, user => {
-                    if (user) {
-                        currentUserId = user.uid;
-                        document.getElementById('userId').textContent = currentUserId;
-                        getLogs(); 
-                    } else {
-                        signInAnonymously(auth);
-                    }
-                });
-                showPage('home'); // Show home section by default
-            } catch (error) {
-                console.error("Firebase Init Error:", error);
-                document.getElementById('loading-logs').innerHTML = `<p class="text-red-500 text-center"><b>Error:</b> Could not initialize Firebase. Please add your config details in the script.</p>`;
-            }
-        });
-    </script>
 </body>
 </html>
