@@ -119,6 +119,13 @@ body {
     transform: translateY(10px);
     transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
 }
+
+/* === NEW: Rule for right-aligned dropdowns === */
+.dropdown-menu-right {
+    left: auto;
+    right: 0;
+}
+
 .dropdown-container:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -713,10 +720,14 @@ details[open] > .course-groups {
         justify-content: space-around; /* Distribute nav items */
         flex-wrap: nowrap; /* Prevent wrapping for primary items */
         gap: 0;
+        /* === MOBILE FIX: Set new positioning context === */
+        position: relative;
     }
     .main-nav ul li {
         flex-grow: 1; /* Allow items to take available space */
         text-align: center; /* Center text in nav items */
+        /* === MOBILE FIX: Remove positioning context from list item === */
+        position: static;
     }
     .main-nav a, .main-nav .dropdown-trigger {
         padding: 12px 5px; /* Adjust padding */
@@ -724,9 +735,9 @@ details[open] > .course-groups {
     }
      .dropdown-menu { /* Make dropdown full width on mobile */
         left: 0;
-        right: 0;
-        min-width: auto;
+        /* === MOBILE FIX: Remove right: 0 and use width: 100% === */
         width: 100%;
+        min-width: auto;
         border-left: none;
         border-right: none;
         border-radius: 0;
