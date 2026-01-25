@@ -1,0 +1,231 @@
+/* ===== IT/Business Professional Theme Additions ===== */
+
+/* Professional Hero Grid Layout */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text .greeting {
+    font-size: 1.1em;
+    color: var(--primary-purple);
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.hero-text h1 {
+    font-size: 3.5em;
+    font-weight: 800;
+    color: var(--text-slate);
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+.hero-text h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: 24px;
+}
+
+.hero-text .bio {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: var(--text-gray);
+    margin-bottom: 32px;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    border: 4px solid white;
+}
+
+/* Professional About Section */
+.about-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.about-section .section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--text-slate);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-text.full-width p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+/* Professional Journey/Timeline Section */
+.journey-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, var(--bg-gray) 0%, white 100%);
+}
+
+.journey-section .section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--text-slate);
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-purple), var(--accent-cyan));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -46px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary-purple);
+    border: 3px solid white;
+    box-shadow: 0 0 0 4px var(--accent-cyan);
+    z-index: 2;
+}
+
+.timeline-content {
+    background-color: white;
+    padding: 24px 28px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-purple);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.timeline-date {
+    font-size: 0.9em;
+    color: var(--primary-purple);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.timeline-content h3 {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--text-slate);
+    margin-bottom: 6px;
+}
+
+.timeline-company {
+    font-size: 0.95em;
+    color: var(--text-gray);
+    margin-bottom: 0;
+}
+
+/* Professional Subpage Hero */
+.subpage-hero {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-purple) 100%);
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+
+.subpage-hero h1 {
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.subpage-hero .contact-intro,
+.subpage-hero .contact-info {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.subpage-hero .contact-info a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Professional Card System */
+.professional-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.professional-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5em;
+    }
+
+    .timeline {
+        padding-left: 30px;
+    }
+
+    .timeline-dot {
+        left: -37px;
+    }
+}
