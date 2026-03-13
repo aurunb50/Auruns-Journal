@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Aurun Bhattarai</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">aurun<span class="accent">.</span>dev</a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">menu</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Get in Touch</h1>
+        <p>Open to IT support, systems administration, and service desk opportunities in the Windsor-Essex region.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-form">
+          <h2>Send a Message</h2>
+          <form class="simple-contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required placeholder="Tell me about the role or project..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message →</button>
+          </form>
+        </div>
+
+        <div class="contact-details">
+          <h2>Contact Information</h2>
+          <div class="detail-card">
+            <div class="detail-icon">✉</div>
+            <div>
+              <h3>Email</h3>
+              <a href="mailto:Aurunb50@gmail.com">Aurunb50@gmail.com</a>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-icon">📱</div>
+            <div>
+              <h3>Phone</h3>
+              <p>519-400-7494</p>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-icon">💼</div>
+            <div>
+              <h3>LinkedIn</h3>
+              <a href="https://www.linkedin.com/in/aurunb" target="_blank" rel="noopener noreferrer">linkedin.com/in/aurunb</a>
+            </div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-icon">📍</div>
+            <div>
+              <h3>Location</h3>
+              <p>Windsor, Ontario, Canada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2026 Aurun Bhattarai · Windsor, Ontario</p>
+        <div class="footer-links">
+          <a href="mailto:Aurunb50@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/aurunb" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.submit-btn');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#34d399';
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        e.target.reset();
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
