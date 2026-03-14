@@ -3,19 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume — Aurun Bhattarai</title>
+  <title>Aurun Bhattarai — IT Systems & Infrastructure</title>
+  <meta name="description" content="IT professional specializing in systems administration, network infrastructure, and enterprise IT support. Based in Windsor, Ontario.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Navigation -->
   <header class="site-header" id="siteHeader">
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">aurun<span class="accent">.</span>dev</a>
         <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">menu</button>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="resume.html" class="active">Resume</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -24,148 +26,401 @@
   </header>
 
   <main>
-    <section class="resume-hero">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero has-grid-bg">
       <div class="container">
-        <h1>Aurun Bhattarai</h1>
-        <div class="contact-links">
-          <span>Windsor, ON</span>
-          <span>519-400-7494</span>
-          <a href="mailto:Aurunb50@gmail.com">Aurunb50@gmail.com</a>
-          <a href="https://www.linkedin.com/in/aurunb" target="_blank" rel="noopener noreferrer">linkedin.com/in/aurunb</a>
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              Open to opportunities
+            </div>
+            <p class="hero-label">Systems &amp; Infrastructure</p>
+            <h1 class="hero-name">Aurun Bhattarai</h1>
+            <p class="hero-title">IT Professional with hands-on <span class="highlight">sysadmin</span>, <span class="highlight">networking</span>, and <span class="highlight">service desk</span> experience</p>
+            <p class="hero-bio">I deploy hardware at scale, design network infrastructure, troubleshoot real production issues, and build the systems that keep organizations running. BBA-IT graduate from St.&nbsp;Clair College with an Advanced Diploma in Computer Networking.</p>
+            <div class="hero-actions">
+              <a href="resume.html" class="btn btn-primary">View Resume →</a>
+              <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-photo-frame">
+              <img src="images/gallery/profile.jpg" alt="Aurun Bhattarai" width="340" height="420">
+            </div>
+            <div class="hero-stat s1">
+              <span class="value">400+</span>
+              <span class="label">Devices Deployed</span>
+            </div>
+            <div class="hero-stat s2">
+              <span class="value">ERP</span>
+              <span class="label">Go-Live Support</span>
+            </div>
+            <div class="hero-stat s3">
+              <span class="value">L1/L2</span>
+              <span class="label">Desktop Support</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="container">
-
-      <!-- Education -->
-      <section class="resume-section">
-        <h2>Education</h2>
-        <div class="resume-item">
-          <h3>Honours Bachelor — Business Administration & IT Administration</h3>
-          <p class="institution">St. Clair College · Windsor, Ontario</p>
-          <p class="dates">Sept 2024 – Apr 2026</p>
+    <!-- ===== ABOUT + TECH STACK ===== -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="section-label">About Me</p>
+            <h2 class="section-heading">I bridge the gap between infrastructure and business operations</h2>
+            <p>I'm an IT professional based in Windsor, Ontario, finishing my Honours Bachelor of Business Administration & IT Administration at St. Clair College. Before that, I completed a three-year Advanced Diploma in Computer Networking — which means I understand both the technical depth of network and systems work, and the strategic lens businesses use to evaluate IT investments.</p>
+            <p>My internship at Narmco Group had me deploying 400+ computing devices across manufacturing plants as part of a large-scale ERP implementation. At the Town of Tecumseh, I led a network infrastructure analysis and redesign project from requirements gathering through to a final proposal. At St. Clair College's help desk, I delivered L1/L2 deskside support for students on Windows and macOS.</p>
+            <p>I'm looking for roles where I can apply this foundation — whether that's service desk, systems administration, or IT support in an environment where the work actually matters.</p>
+          </div>
+          <div class="reveal">
+            <p class="section-label">Core Technologies</p>
+            <div class="tech-stack stagger">
+              <div class="tech-card">
+                <div class="tech-icon">🖥️</div>
+                <h4>Systems</h4>
+                <p>Windows Server 2019, AD, GPO, M365, Azure fundamentals</p>
+              </div>
+              <div class="tech-card">
+                <div class="tech-icon">🌐</div>
+                <h4>Networking</h4>
+                <p>TCP/IP, DNS, DHCP, VPN, Cisco switches & firewalls</p>
+              </div>
+              <div class="tech-card">
+                <div class="tech-icon">🔧</div>
+                <h4>Support</h4>
+                <p>ServiceNow, L1/L2 deskside, hardware troubleshooting</p>
+              </div>
+              <div class="tech-card">
+                <div class="tech-icon">📊</div>
+                <h4>Tools</h4>
+                <p>VMware, Fluke testers, MS Visio, network diagramming</p>
+              </div>
+              <div class="tech-card">
+                <div class="tech-icon">⚙️</div>
+                <h4>ITSM</h4>
+                <p>ITIL practices, SLA/OLA frameworks, Jira Service Management</p>
+              </div>
+              <div class="tech-card">
+                <div class="tech-icon">💻</div>
+                <h4>Development</h4>
+                <p>HTML/CSS/JS, React, Firebase, Git, scripting</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="resume-item">
-          <h3>Advanced Diploma — Computer Networking Technologist</h3>
-          <p class="institution">St. Clair College · Windsor, Ontario</p>
-          <p class="dates">Sept 2021 – Apr 2024</p>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section class="skills-section has-grid-bg" id="skills">
+      <div class="container">
+        <p class="section-label reveal">What I Bring</p>
+        <h2 class="section-heading reveal">Technical Skills</h2>
+        <p class="section-desc reveal">Practical, job-relevant capabilities developed through internships, capstone projects, and coursework.</p>
+        <div class="skills-grid stagger reveal">
+          <div class="skill-block">
+            <div class="skill-block-icon">🖧</div>
+            <h3>Network Design & Analysis</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">LAN/WAN</span>
+              <span class="skill-tag">TCP/IP</span>
+              <span class="skill-tag">Cisco IOS</span>
+              <span class="skill-tag">Firewalls</span>
+              <span class="skill-tag">VPN</span>
+              <span class="skill-tag">DNS</span>
+              <span class="skill-tag">DHCP</span>
+              <span class="skill-tag">Network Diagrams</span>
+              <span class="skill-tag">Fluke Testing</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-block-icon">🗄️</div>
+            <h3>Systems Administration</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Windows Server 2019</span>
+              <span class="skill-tag">Active Directory</span>
+              <span class="skill-tag">Group Policy</span>
+              <span class="skill-tag">Microsoft 365</span>
+              <span class="skill-tag">Azure (Basics)</span>
+              <span class="skill-tag">VMware</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-block-icon">🎧</div>
+            <h3>IT Service Management</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">ITIL</span>
+              <span class="skill-tag">ServiceNow</span>
+              <span class="skill-tag">Jira SM</span>
+              <span class="skill-tag">SLA/OLA</span>
+              <span class="skill-tag">Incident Mgmt</span>
+              <span class="skill-tag">Change Mgmt</span>
+              <span class="skill-tag">XLAs</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-block-icon">🛠️</div>
+            <h3>End-User & Hardware Support</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Windows 10/11</span>
+              <span class="skill-tag">macOS</span>
+              <span class="skill-tag">L1/L2 Support</span>
+              <span class="skill-tag">Imaging</span>
+              <span class="skill-tag">Printers</span>
+              <span class="skill-tag">Scanners</span>
+              <span class="skill-tag">Mobile Repair</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-block-icon">📁</div>
+            <h3>Project Management & Docs</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Stakeholder Comm.</span>
+              <span class="skill-tag">MS Visio</span>
+              <span class="skill-tag">Technical Writing</span>
+              <span class="skill-tag">Network Proposals</span>
+              <span class="skill-tag">Deadline Mgmt</span>
+            </div>
+          </div>
+          <div class="skill-block">
+            <div class="skill-block-icon">🧑‍💻</div>
+            <h3>Web & Application Development</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Firebase</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Web Audio API</span>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Technical Skills -->
-      <section class="resume-section">
-        <h2>Technical Skills</h2>
-        <dl class="skills-dl">
-          <div class="skill-row">
-            <dt>Systems & Server Admin</dt>
-            <dd>Windows Server 2019, Windows 10/11, Active Directory, Group Policy, Microsoft 365 Administration, VMware virtualization, Microsoft Azure (basics)</dd>
+    <!-- ===== PROJECTS ===== -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <p class="section-label reveal">Selected Work</p>
+        <h2 class="section-heading reveal">Projects</h2>
+        <p class="section-desc reveal">Real-world technical projects — from enterprise deployments to full-stack web apps.</p>
+        <div class="projects-grid stagger reveal">
+          <div class="project-card">
+            <div class="project-thumb">🏭</div>
+            <div class="project-body">
+              <span class="project-type">Enterprise IT</span>
+              <h3>ERP Hardware Deployment — Narmco Group</h3>
+              <p>Deployed and configured 400+ computing devices (workstations, PM45 printers, scanners) across multiple manufacturing plants for a large-scale ERP go-live. 100% on-schedule delivery over a 4-month timeline.</p>
+              <div class="project-stack">
+                <span>Windows</span>
+                <span>Networking</span>
+                <span>ERP Integration</span>
+                <span>Hardware Config</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-row">
-            <dt>Network Design & Analysis</dt>
-            <dd>Network redesign & upgrade planning, TCP/IP, LAN/WAN performance analysis, Cisco infrastructure (firewalls, switches), VPN, DNS, DHCP, IP configuration</dd>
+          <div class="project-card">
+            <div class="project-thumb">🏛️</div>
+            <div class="project-body">
+              <span class="project-type">Network Infrastructure</span>
+              <h3>Municipal Network Redesign — Town of Tecumseh</h3>
+              <p>Led an end-to-end network analysis and upgrade proposal for municipal infrastructure. Evaluated firewalls, switches, and cabling; produced detailed Visio diagrams and a comprehensive technical proposal.</p>
+              <div class="project-stack">
+                <span>Cisco</span>
+                <span>Firewalls</span>
+                <span>MS Visio</span>
+                <span>LAN/WAN Analysis</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-row">
-            <dt>IT Service Management</dt>
-            <dd>ITIL practices, Jira Service Management, ServiceNow, SLA/OLA/UC frameworks, incident/change/problem management, XLAs</dd>
+          <div class="project-card">
+            <div class="project-thumb">🏗️</div>
+            <div class="project-body">
+              <span class="project-type">Full-Stack Web App</span>
+              <h3>Enviroshake Contractor Portal</h3>
+              <p>Built a contractor resource portal for a roofing company. Single-admin upload model with authenticated access, document management, and a clean UI for contractors to find installation guides and specs.</p>
+              <div class="project-stack">
+                <span>React</span>
+                <span>Vite</span>
+                <span>Firebase</span>
+                <span>Auth</span>
+                <span>Hosting</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-row">
-            <dt>Support & Troubleshooting</dt>
-            <dd>L1/L2 deskside support, hardware/software diagnostics, Fluke network testers, ticketing systems, end-user communication</dd>
+          <div class="project-card">
+            <div class="project-thumb">🎵</div>
+            <div class="project-body">
+              <span class="project-type">Audio / Creative Tech</span>
+              <h3>Riyaz — Pitch Training App</h3>
+              <p>A Hindustani classical music practice tool with live swara detection, pitch trail visualization, and an XY pitch graph. Built as a single-file app using the Web Audio API for real-time mic analysis.</p>
+              <div class="project-stack">
+                <span>JavaScript</span>
+                <span>Web Audio API</span>
+                <span>Canvas</span>
+                <span>DSP</span>
+              </div>
+            </div>
           </div>
-          <div class="skill-row">
-            <dt>Development & Tools</dt>
-            <dd>HTML, CSS, JavaScript, React, Firebase (Auth, Hosting, Firestore), Git, Web Audio API, MS Visio, network diagramming</dd>
-          </div>
-          <div class="skill-row">
-            <dt>Project & Documentation</dt>
-            <dd>Project leadership, stakeholder collaboration, technical documentation, network proposals, deadline management, MS Office Suite</dd>
-          </div>
-        </dl>
-      </section>
+        </div>
+      </div>
+    </section>
 
-      <!-- Relevant Experience -->
-      <section class="resume-section">
-        <h2>Relevant Experience</h2>
+    <!-- ===== EXPERIENCE TIMELINE ===== -->
+    <section class="experience" id="experience">
+      <div class="container">
+        <p class="section-label reveal">Career Path</p>
+        <h2 class="section-heading reveal">Experience</h2>
+        <p class="section-desc reveal">From help desk co-op to sysadmin intern — each role sharpened a different edge.</p>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <p class="tl-date">Apr 2025 – Sept 2025</p>
+              <h3>System Administrator Intern</h3>
+              <p class="tl-company">Narmco Group Company · Windsor, ON</p>
+              <ul>
+                <li>Deployed 400+ devices across manufacturing plants for ERP go-live — 100% on schedule</li>
+                <li>Designed network maps and infrastructure documentation for the organization</li>
+                <li>Collaborated daily with production, maintenance, and project teams on system requirements</li>
+                <li>Used Fluke testers and scripting tools to diagnose network connectivity issues</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <p class="tl-date">Sept 2024 – Sept 2025</p>
+              <h3>Project Manager — Endure & Sparkerz</h3>
+              <p class="tl-company">Enactus St. Clair College · Windsor, ON</p>
+              <ul>
+                <li>Led two social enterprise projects through ideation, planning, and execution</li>
+                <li>Coordinated cross-functional team activities and stakeholder presentations</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <p class="tl-date">Jan 2024 – Apr 2024</p>
+              <h3>Networking Project Leader</h3>
+              <p class="tl-company">Town of Tecumseh Townhall · Tecumseh, ON</p>
+              <ul>
+                <li>Led a comprehensive network design analysis for municipal infrastructure</li>
+                <li>Recommended strategic upgrades for firewalls, switches, and cabling</li>
+                <li>Produced detailed technical documentation and Visio network diagrams</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <p class="tl-date">Jan 2023 – Aug 2023</p>
+              <h3>Mobile Repair Technician</h3>
+              <p class="tl-company">MOBILINQ · Windsor, ON</p>
+              <ul>
+                <li>Diagnosed and repaired smartphones and tablets — screens, batteries, charging ports</li>
+                <li>Customer-facing technical troubleshooting and device consultation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <p class="tl-date">Sept 2021 – Apr 2023</p>
+              <h3>Help Desk Technician (Internship)</h3>
+              <p class="tl-company">St. Clair College · Windsor, ON</p>
+              <ul>
+                <li>Delivered L1/L2 deskside support for 100+ students on Windows and macOS</li>
+                <li>Diagnosed hardware, software, and network connectivity issues</li>
+                <li>Created technical documentation for the internal knowledge base</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="resume-item">
-          <h3>System Administrator Intern <a href="https://narmco.com" target="_blank" rel="noopener noreferrer" class="company-link">↗</a></h3>
-          <p class="institution">Narmco Group Company · Windsor, Ontario</p>
-          <p class="dates">Apr 2025 – Sept 2025</p>
-          <ul>
-            <li>Supported IT hardware integration for a large-scale ERP implementation over a 4-month project timeline, achieving 100% on-schedule hardware deployment for the go-live date</li>
-            <li>Deployed and configured 400+ computing devices — workstations, PM45 printers, and scanners — across multiple manufacturing plants</li>
-            <li>Designed comprehensive network maps and infrastructure documentation for the organization (available to discuss in interview; restricted for security)</li>
-            <li>Collaborated daily with cross-functional production, maintenance, and project teams to analyze operational scenarios and define system requirements</li>
-            <li>Performed server administration and advanced troubleshooting within a manufacturing IT environment, leveraging scripting and diagnostic tools</li>
-            <li>Utilized Fluke network testers and coding techniques to identify and remediate connectivity and performance issues</li>
-          </ul>
+    <!-- ===== EDUCATION & CERTS ===== -->
+    <section class="education has-grid-bg" id="education">
+      <div class="container">
+        <p class="section-label reveal">Education</p>
+        <h2 class="section-heading reveal">Academic Background</h2>
+        <div class="timeline" style="margin-bottom: 60px;">
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <p class="tl-date">Sept 2024 – Apr 2026</p>
+              <h3>Honours Bachelor of Business Administration & IT Administration</h3>
+              <p class="tl-company">St. Clair College · Windsor, ON</p>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <p class="tl-date">Sept 2021 – Apr 2024</p>
+              <h3>Advanced Diploma — Computer Networking Technologist</h3>
+              <p class="tl-company">St. Clair College · Windsor, ON</p>
+            </div>
+          </div>
         </div>
 
-        <div class="resume-item">
-          <h3>Networking Project Leader <a href="https://www.tecumseh.ca" target="_blank" rel="noopener noreferrer" class="company-link">↗</a></h3>
-          <p class="institution">Town of Tecumseh Townhall · Tecumseh, Ontario</p>
-          <p class="dates">Jan 2024 – Apr 2024</p>
-          <ul>
-            <li>Led a comprehensive network design analysis project, performing hands-on evaluation of municipal infrastructure to recommend strategic upgrades for firewalls, switches, and cabling</li>
-            <li>Designed detailed network maps and infrastructure diagrams for the municipal network (restricted for security)</li>
-            <li>Coordinated meetings, established deadlines, and collaborated with internal stakeholders to ensure milestones were achieved on schedule</li>
-            <li>Troubleshot LAN/WAN performance issues and analyzed network traffic to propose solutions improving reliability and security</li>
-            <li>Produced comprehensive technical documentation and network diagrams using MS Visio, delivering a detailed network proposal</li>
-          </ul>
+        <p class="section-label reveal">Relevant Coursework & Training</p>
+        <div class="cert-grid stagger reveal">
+          <div class="cert-card">
+            <div class="cert-icon">🔒</div>
+            <div class="cert-info">
+              <h4>Cybersecurity Fundamentals</h4>
+              <p>Network security, threat analysis, firewalls</p>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">☁️</div>
+            <div class="cert-info">
+              <h4>Microsoft Azure Fundamentals</h4>
+              <p>Cloud services, identity, governance</p>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">📡</div>
+            <div class="cert-info">
+              <h4>Cisco Networking (CCNA-aligned)</h4>
+              <p>Routing, switching, IOS configuration</p>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🧩</div>
+            <div class="cert-info">
+              <h4>ITIL & IT Service Management</h4>
+              <p>Incident, change, problem management</p>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🗃️</div>
+            <div class="cert-info">
+              <h4>Virtualization (VMware)</h4>
+              <p>VM provisioning, snapshots, resource mgmt</p>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">📋</div>
+            <div class="cert-info">
+              <h4>Entrepreneurship & Business Strategy</h4>
+              <p>Feasibility analysis, financial viability, business models</p>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <div class="resume-item">
-          <h3>Help Desk Technician (Internship)</h3>
-          <p class="institution">St. Clair College · Windsor, Ontario</p>
-          <p class="dates">Sept 2021 – Apr 2023</p>
-          <ul>
-            <li>Delivered Level 1 and Level 2 deskside support for 100+ students, troubleshooting hardware and software issues on Windows and macOS</li>
-            <li>Diagnosed and resolved problems including network connectivity, application errors, and device malfunctions</li>
-            <li>Developed technical documentation contributing to an internal knowledge base</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Full Work History -->
-      <section class="resume-section">
-        <h2>Complete Work History</h2>
-        <ul class="history-list">
-          <li>
-            <span class="history-job">System Administrator Intern — Narmco Group Company</span>
-            <span class="history-date">Apr 2025 – Sept 2025</span>
-          </li>
-          <li>
-            <span class="history-job">Project Manager (Endure & Sparkerz) — Enactus St. Clair College</span>
-            <span class="history-date">Sept 2024 – Sept 2025</span>
-          </li>
-          <li>
-            <span class="history-job">Networking Project Leader — Town of Tecumseh Townhall</span>
-            <span class="history-date">Jan 2024 – Apr 2024</span>
-          </li>
-          <li>
-            <span class="history-job">Mobile Repair Technician — MOBILINQ Devonshire Mall</span>
-            <span class="history-date">Jan 2023 – Aug 2023</span>
-          </li>
-          <li>
-            <span class="history-job">Soccer Coach — United Soccer Academies</span>
-            <span class="history-date">Sept 2022 – May 2023</span>
-          </li>
-          <li>
-            <span class="history-job">Help Desk Technician (Internship) — St. Clair College</span>
-            <span class="history-date">Sept 2021 – Apr 2023</span>
-          </li>
-            <span class="history-job">Assistant Kitchen Chief — Coachwood Golf & Country Club</span>
-            <span class="history-date">Jun 2021 – Nov 2021</span>
-          </li>
-          <li>
-            
-        </ul>
-      </section>
-
-    </div>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
@@ -173,6 +428,7 @@
         <div class="footer-links">
           <a href="mailto:Aurunb50@gmail.com">Email</a>
           <a href="https://www.linkedin.com/in/aurunb" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="resume.html">Resume</a>
         </div>
       </div>
     </div>
