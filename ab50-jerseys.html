@@ -203,35 +203,42 @@
             box-shadow: 0 16px 40px rgba(10,22,40,0.12);
         }
 
-        /* Jersey image placeholder */
-        .jersey-placeholder {
+        /* Jersey photo */
+        .jersey-photo {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(180deg, #eef1f7 0%, #dde3ef 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            height: 280px;
+            background: linear-gradient(180deg, #f4f6fa 0%, #e7ecf4 100%);
             position: relative;
+            overflow: hidden;
         }
-        .jersey-placeholder svg {
-            width: 90px;
-            opacity: 0.35;
+        .jersey-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
-        .jersey-placeholder .flag-overlay {
+        .jersey-photo .flag-overlay {
             position: absolute;
             top: 12px;
             left: 14px;
             font-size: 1.6rem;
             line-height: 1;
+            z-index: 2;
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
         }
-        .jersey-placeholder .img-label {
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: #9aaac0;
-            letter-spacing: 1px;
+
+        /* Player-version tag */
+        .version-tag {
+            display: inline-block;
+            background: var(--navy);
+            color: var(--gold);
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
 
         .badge-printed {
@@ -455,7 +462,7 @@
     <section class="section products" id="shop">
         <div class="section-title">
             <h2>Browse World Cup Kits</h2>
-            <p>Replica fan jerseys · Blank or custom printed · Sizes S–XXL · Contact to order</p>
+            <p>Player-version (authentic) kits · Blank or custom printed · Sizes S–XL · Contact to order</p>
         </div>
 
         <div class="product-grid">
@@ -463,15 +470,12 @@
             <!-- Argentina -->
             <div class="product-card">
                 <div class="badge-printed">Messi in stock ★</div>
-                <div class="jersey-placeholder">
+                <div class="jersey-photo">
                     <div class="flag-overlay">🇦🇷</div>
-                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
-                    </svg>
-                    <span class="img-label">Photo coming soon</span>
+                    <img src="images/jerseys/argentina.png" alt="Argentina 2026 player-version jersey with Messi #10" loading="lazy">
                 </div>
                 <div class="card-body">
+                    <div class="version-tag">⭐ Player Version</div>
                     <div class="card-team">Argentina</div>
                     <div class="card-players">✓ Messi #10 pre-printed (M, L)</div>
                     <div class="card-sizes">
@@ -492,15 +496,12 @@
 
             <!-- Mexico -->
             <div class="product-card">
-                <div class="jersey-placeholder">
+                <div class="jersey-photo">
                     <div class="flag-overlay">🇲🇽</div>
-                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
-                    </svg>
-                    <span class="img-label">Photo coming soon</span>
+                    <img src="images/jerseys/mexico.png" alt="Mexico 2026 player-version jersey" loading="lazy">
                 </div>
                 <div class="card-body">
+                    <div class="version-tag">⭐ Player Version</div>
                     <div class="card-team">Mexico</div>
                     <div class="card-players"></div>
                     <div class="card-sizes">
@@ -520,21 +521,18 @@
 
             <!-- Brazil -->
             <div class="product-card">
-                <div class="jersey-placeholder">
+                <div class="jersey-photo">
                     <div class="flag-overlay">🇧🇷</div>
-                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
-                    </svg>
-                    <span class="img-label">Photo coming soon</span>
+                    <img src="images/jerseys/brazil.png" alt="Brazil 2026 player-version jersey" loading="lazy">
                 </div>
                 <div class="card-body">
+                    <div class="version-tag">⭐ Player Version</div>
                     <div class="card-team">Brazil</div>
                     <div class="card-players"></div>
                     <div class="card-sizes">
                         <span class="size-chip">Blank: M</span>
                         <span class="size-chip">Blank: L</span>
-                        <span class="size-chip">Blank: XXL</span>
+                        <span class="size-chip">Blank: XL</span>
                     </div>
                     <div class="card-footer">
                         <div>
@@ -548,15 +546,12 @@
 
             <!-- Canada -->
             <div class="product-card">
-                <div class="jersey-placeholder">
+                <div class="jersey-photo">
                     <div class="flag-overlay">🇨🇦</div>
-                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
-                    </svg>
-                    <span class="img-label">Photo coming soon</span>
+                    <img src="images/jerseys/canada.png" alt="Canada 2026 player-version jersey" loading="lazy">
                 </div>
                 <div class="card-body">
+                    <div class="version-tag">⭐ Player Version</div>
                     <div class="card-team">Canada</div>
                     <div class="card-players"></div>
                     <div class="card-sizes">
@@ -577,15 +572,12 @@
             <!-- Portugal -->
             <div class="product-card">
                 <div class="badge-printed">Ronaldo in stock ★</div>
-                <div class="jersey-placeholder">
+                <div class="jersey-photo">
                     <div class="flag-overlay">🇵🇹</div>
-                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
-                    </svg>
-                    <span class="img-label">Photo coming soon</span>
+                    <img src="images/jerseys/portugal.png" alt="Portugal 2026 player-version jersey" loading="lazy">
                 </div>
                 <div class="card-body">
+                    <div class="version-tag">⭐ Player Version</div>
                     <div class="card-team">Portugal</div>
                     <div class="card-players">✓ Ronaldo #7 pre-printed (M, L)</div>
                     <div class="card-sizes">
@@ -605,15 +597,12 @@
 
             <!-- Morocco -->
             <div class="product-card">
-                <div class="jersey-placeholder">
+                <div class="jersey-photo">
                     <div class="flag-overlay">🇲🇦</div>
-                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
-                    </svg>
-                    <span class="img-label">Photo coming soon</span>
+                    <img src="images/jerseys/morocco.png" alt="Morocco 2026 player-version jersey" loading="lazy">
                 </div>
                 <div class="card-body">
+                    <div class="version-tag">⭐ Player Version</div>
                     <div class="card-team">Morocco</div>
                     <div class="card-players"></div>
                     <div class="card-sizes">
@@ -634,15 +623,12 @@
 
             <!-- France -->
             <div class="product-card">
-                <div class="jersey-placeholder">
+                <div class="jersey-photo">
                     <div class="flag-overlay">🇫🇷</div>
-                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
-                    </svg>
-                    <span class="img-label">Photo coming soon</span>
+                    <img src="images/jerseys/france.png" alt="France 2026 player-version jersey" loading="lazy">
                 </div>
                 <div class="card-body">
+                    <div class="version-tag">⭐ Player Version</div>
                     <div class="card-team">France</div>
                     <div class="card-players"></div>
                     <div class="card-sizes">
@@ -661,15 +647,12 @@
 
             <!-- Spain -->
             <div class="product-card">
-                <div class="jersey-placeholder">
+                <div class="jersey-photo">
                     <div class="flag-overlay">🇪🇸</div>
-                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
-                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
-                    </svg>
-                    <span class="img-label">Photo coming soon</span>
+                    <img src="images/jerseys/spain.png" alt="Spain 2026 player-version jersey" loading="lazy">
                 </div>
                 <div class="card-body">
+                    <div class="version-tag">⭐ Player Version</div>
                     <div class="card-team">Spain</div>
                     <div class="card-players"></div>
                     <div class="card-sizes">
