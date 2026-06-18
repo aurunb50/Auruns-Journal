@@ -47,7 +47,6 @@
             color: var(--gold);
             letter-spacing: -0.5px;
         }
-
         .logo span { color: var(--white); }
 
         nav { display: flex; gap: 32px; }
@@ -60,18 +59,20 @@
         }
         nav a:hover { color: var(--gold); }
 
-        .cart-btn {
-            background: var(--gold);
-            color: var(--navy);
-            border: none;
-            padding: 9px 20px;
-            border-radius: 24px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.15s;
+        .header-contact {
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
-        .cart-btn:hover { background: var(--gold-dark); transform: scale(1.04); }
+        .header-contact a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .header-contact a:hover { color: var(--gold); }
+        .header-contact .divider { color: rgba(255,255,255,0.2); }
 
         /* ── HERO ── */
         .hero {
@@ -114,11 +115,7 @@
             letter-spacing: -1.5px;
             margin-bottom: 18px;
         }
-
-        .hero h1 em {
-            color: var(--gold);
-            font-style: normal;
-        }
+        .hero h1 em { color: var(--gold); font-style: normal; }
 
         .hero p {
             color: rgba(255,255,255,0.7);
@@ -137,8 +134,6 @@
             border-radius: 8px;
             font-weight: 700;
             font-size: 1rem;
-            border: none;
-            cursor: pointer;
             text-decoration: none;
             transition: background 0.2s, transform 0.15s;
             display: inline-block;
@@ -153,7 +148,6 @@
             font-weight: 600;
             font-size: 1rem;
             border: 2px solid rgba(255,255,255,0.3);
-            cursor: pointer;
             text-decoration: none;
             transition: border-color 0.2s, color 0.2s;
             display: inline-block;
@@ -169,7 +163,6 @@
             padding: 18px 40px;
             flex-wrap: wrap;
         }
-
         .trust-item {
             color: rgba(255,255,255,0.65);
             font-size: 0.85rem;
@@ -181,16 +174,8 @@
 
         /* ── SECTION COMMONS ── */
         .section { padding: 80px 40px; }
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .section-title h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
         .section-title p { color: var(--text-muted); font-size: 1.05rem; }
 
         /* ── PRODUCT GRID ── */
@@ -212,18 +197,40 @@
             transition: transform 0.25s, box-shadow 0.25s;
             position: relative;
         }
-
         .product-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 16px 40px rgba(10,22,40,0.12);
         }
 
-        .card-flag {
-            font-size: 5rem;
-            text-align: center;
-            padding: 36px 20px 20px;
-            background: linear-gradient(180deg, var(--light) 0%, var(--white) 100%);
+        /* Jersey image placeholder */
+        .jersey-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(180deg, #eef1f7 0%, #dde3ef 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+        }
+        .jersey-placeholder svg {
+            width: 90px;
+            opacity: 0.35;
+        }
+        .jersey-placeholder .flag-overlay {
+            position: absolute;
+            top: 12px;
+            left: 14px;
+            font-size: 1.6rem;
             line-height: 1;
+        }
+        .jersey-placeholder .img-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #9aaac0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .badge-printed {
@@ -236,15 +243,12 @@
             padding: 4px 10px;
             border-radius: 20px;
             letter-spacing: 0.5px;
+            z-index: 2;
         }
 
         .card-body { padding: 20px 24px 24px; }
 
-        .card-team {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-        }
+        .card-team { font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; }
 
         .card-players {
             font-size: 0.85rem;
@@ -260,7 +264,6 @@
             flex-wrap: wrap;
             margin-bottom: 18px;
         }
-
         .size-chip {
             background: var(--light);
             border: 1px solid var(--border);
@@ -280,45 +283,22 @@
             gap: 12px;
         }
 
-        .price-block { }
-        .price-blank {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--navy);
-        }
-        .price-printed {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
+        .price-blank { font-size: 1.3rem; font-weight: 800; color: var(--navy); }
+        .price-printed { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
 
-        .card-actions { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
-
-        select.size-select {
-            border: 1.5px solid var(--border);
-            border-radius: 6px;
-            padding: 5px 8px;
-            font-size: 0.85rem;
-            background: var(--white);
-            color: var(--navy);
-            font-family: var(--font);
-            cursor: pointer;
-            outline: none;
-        }
-
-        .btn-cart {
+        .btn-order {
             background: var(--navy);
             color: var(--white);
-            border: none;
             padding: 9px 18px;
             border-radius: 8px;
             font-weight: 700;
             font-size: 0.85rem;
-            cursor: pointer;
-            transition: background 0.2s;
+            text-decoration: none;
             white-space: nowrap;
+            transition: background 0.2s;
+            display: inline-block;
         }
-        .btn-cart:hover { background: var(--gold); color: var(--navy); }
+        .btn-order:hover { background: var(--gold); color: var(--navy); }
 
         /* ── PRINT ON DEMAND ── */
         .pod { background: var(--light); }
@@ -330,7 +310,6 @@
             max-width: 1000px;
             margin: 0 auto 40px;
         }
-
         .pod-card {
             background: var(--white);
             border: 1.5px solid var(--border);
@@ -340,10 +319,7 @@
             align-items: center;
             gap: 14px;
         }
-
         .pod-flag { font-size: 2rem; line-height: 1; }
-
-        .pod-info { }
         .pod-player { font-weight: 700; font-size: 0.95rem; }
         .pod-team { font-size: 0.8rem; color: var(--text-muted); }
         .pod-number {
@@ -364,6 +340,7 @@
         }
         .pod-cta h3 { color: var(--white); font-size: 1.4rem; margin-bottom: 10px; }
         .pod-cta p { color: rgba(255,255,255,0.65); margin-bottom: 24px; font-size: 0.95rem; }
+        .pod-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
         .pod-cta a {
             background: var(--gold);
             color: var(--navy);
@@ -375,6 +352,12 @@
             transition: background 0.2s;
         }
         .pod-cta a:hover { background: var(--gold-dark); }
+        .pod-cta a.secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.25);
+        }
+        .pod-cta a.secondary:hover { background: rgba(255,255,255,0.2); }
 
         /* ── HOW IT WORKS ── */
         .how { background: var(--white); }
@@ -387,7 +370,6 @@
             margin: 0 auto;
             text-align: center;
         }
-
         .step-num {
             width: 48px; height: 48px;
             background: var(--gold);
@@ -398,7 +380,6 @@
             font-weight: 900;
             margin: 0 auto 16px;
         }
-
         .step h3 { font-size: 1.05rem; margin-bottom: 8px; }
         .step p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
 
@@ -421,7 +402,6 @@
             .steps { grid-template-columns: 1fr; max-width: 400px; }
             .hero h1 { font-size: 2.8rem; }
         }
-
         @media (max-width: 640px) {
             .product-grid { grid-template-columns: 1fr; }
             header { padding: 0 20px; }
@@ -430,6 +410,7 @@
             .hero h1 { font-size: 2.2rem; }
             .section { padding: 60px 20px; }
             .trust-bar { gap: 20px; }
+            .header-contact .hide-mobile { display: none; }
         }
     </style>
 </head>
@@ -442,18 +423,21 @@
             <a href="#shop">Shop</a>
             <a href="#print-on-demand">Print Add-On</a>
             <a href="#how">How It Works</a>
-            <a href="mailto:aurunb50@gmail.com">Contact</a>
         </nav>
-        <button class="cart-btn" id="cartBtn">🛒 Cart (0)</button>
+        <div class="header-contact">
+            <a href="tel:+15194007494">📞 (519) 400-7494</a>
+            <span class="divider hide-mobile">|</span>
+            <a href="mailto:aurunb50@gmail.com" class="hide-mobile">✉ aurunb50@gmail.com</a>
+        </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
         <div class="hero-eyebrow">2026 FIFA World Cup · Limited Stock</div>
         <h1>Rep Your<br><em>Nation.</em></h1>
-        <p>Authentic replica kits for the biggest tournament on the planet. Ships from Windsor, Ontario. Add custom name &amp; number printing at checkout.</p>
+        <p>Authentic replica kits for the biggest tournament on the planet. Ships from Windsor, Ontario. Contact us to place your order.</p>
         <div class="hero-actions">
-            <a href="#shop" class="btn-primary">Shop All Kits</a>
+            <a href="#shop" class="btn-primary">Browse All Kits</a>
             <a href="#print-on-demand" class="btn-outline">Custom Printing →</a>
         </div>
     </section>
@@ -463,14 +447,14 @@
         <div class="trust-item"><span>📦</span> Ships from Windsor, ON</div>
         <div class="trust-item"><span>⚽</span> 8 National Teams Available</div>
         <div class="trust-item"><span>🖨️</span> Name + Number Add-On Available</div>
-        <div class="trust-item"><span>📧</span> aurunb50@gmail.com</div>
+        <div class="trust-item"><span>📞</span> (519) 400-7494</div>
     </div>
 
     <!-- SHOP SECTION -->
     <section class="section products" id="shop">
         <div class="section-title">
-            <h2>Shop World Cup Kits</h2>
-            <p>Replica fan jerseys · Blank or custom printed · Sizes S–XXL</p>
+            <h2>Browse World Cup Kits</h2>
+            <p>Replica fan jerseys · Blank or custom printed · Sizes S–XXL · Contact to order</p>
         </div>
 
         <div class="product-grid">
@@ -478,7 +462,14 @@
             <!-- Argentina -->
             <div class="product-card">
                 <div class="badge-printed">Messi in stock ★</div>
-                <div class="card-flag">🇦🇷</div>
+                <div class="jersey-placeholder">
+                    <div class="flag-overlay">🇦🇷</div>
+                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="img-label">Photo coming soon</span>
+                </div>
                 <div class="card-body">
                     <div class="card-team">Argentina</div>
                     <div class="card-players">✓ Messi #10 pre-printed (M, L)</div>
@@ -489,27 +480,25 @@
                         <span class="size-chip">Printed: L</span>
                     </div>
                     <div class="card-footer">
-                        <div class="price-block">
+                        <div>
                             <div class="price-blank">$45</div>
                             <div class="price-printed">Printed: $60</div>
                         </div>
-                        <div class="card-actions">
-                            <select class="size-select">
-                                <option value="">Select size</option>
-                                <option>Blank — L</option>
-                                <option>Blank — XL</option>
-                                <option>Messi #10 — M</option>
-                                <option>Messi #10 — L</option>
-                            </select>
-                            <button class="btn-cart" onclick="addToCart('Argentina')">Add to Cart</button>
-                        </div>
+                        <a href="mailto:aurunb50@gmail.com?subject=Order - Argentina Jersey" class="btn-order">Order via Email</a>
                     </div>
                 </div>
             </div>
 
             <!-- Mexico -->
             <div class="product-card">
-                <div class="card-flag">🇲🇽</div>
+                <div class="jersey-placeholder">
+                    <div class="flag-overlay">🇲🇽</div>
+                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="img-label">Photo coming soon</span>
+                </div>
                 <div class="card-body">
                     <div class="card-team">Mexico</div>
                     <div class="card-players"></div>
@@ -519,26 +508,25 @@
                         <span class="size-chip">Blank: L</span>
                     </div>
                     <div class="card-footer">
-                        <div class="price-block">
+                        <div>
                             <div class="price-blank">$45</div>
                             <div class="price-printed">+ Custom print: $60</div>
                         </div>
-                        <div class="card-actions">
-                            <select class="size-select">
-                                <option value="">Select size</option>
-                                <option>Blank — S</option>
-                                <option>Blank — M</option>
-                                <option>Blank — L</option>
-                            </select>
-                            <button class="btn-cart" onclick="addToCart('Mexico')">Add to Cart</button>
-                        </div>
+                        <a href="mailto:aurunb50@gmail.com?subject=Order - Mexico Jersey" class="btn-order">Order via Email</a>
                     </div>
                 </div>
             </div>
 
             <!-- Brazil -->
             <div class="product-card">
-                <div class="card-flag">🇧🇷</div>
+                <div class="jersey-placeholder">
+                    <div class="flag-overlay">🇧🇷</div>
+                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="img-label">Photo coming soon</span>
+                </div>
                 <div class="card-body">
                     <div class="card-team">Brazil</div>
                     <div class="card-players"></div>
@@ -548,26 +536,25 @@
                         <span class="size-chip">Blank: XXL</span>
                     </div>
                     <div class="card-footer">
-                        <div class="price-block">
+                        <div>
                             <div class="price-blank">$45</div>
                             <div class="price-printed">+ Custom print: $60</div>
                         </div>
-                        <div class="card-actions">
-                            <select class="size-select">
-                                <option value="">Select size</option>
-                                <option>Blank — M</option>
-                                <option>Blank — L</option>
-                                <option>Blank — XXL</option>
-                            </select>
-                            <button class="btn-cart" onclick="addToCart('Brazil')">Add to Cart</button>
-                        </div>
+                        <a href="mailto:aurunb50@gmail.com?subject=Order - Brazil Jersey" class="btn-order">Order via Email</a>
                     </div>
                 </div>
             </div>
 
             <!-- Canada -->
             <div class="product-card">
-                <div class="card-flag">🇨🇦</div>
+                <div class="jersey-placeholder">
+                    <div class="flag-overlay">🇨🇦</div>
+                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="img-label">Photo coming soon</span>
+                </div>
                 <div class="card-body">
                     <div class="card-team">Canada</div>
                     <div class="card-players"></div>
@@ -577,19 +564,11 @@
                         <span class="size-chip">Blank: L</span>
                     </div>
                     <div class="card-footer">
-                        <div class="price-block">
+                        <div>
                             <div class="price-blank">$45</div>
                             <div class="price-printed">+ Custom print: $60</div>
                         </div>
-                        <div class="card-actions">
-                            <select class="size-select">
-                                <option value="">Select size</option>
-                                <option>Blank — S</option>
-                                <option>Blank — M</option>
-                                <option>Blank — L</option>
-                            </select>
-                            <button class="btn-cart" onclick="addToCart('Canada')">Add to Cart</button>
-                        </div>
+                        <a href="mailto:aurunb50@gmail.com?subject=Order - Canada Jersey" class="btn-order">Order via Email</a>
                     </div>
                 </div>
             </div>
@@ -597,7 +576,14 @@
             <!-- Portugal -->
             <div class="product-card">
                 <div class="badge-printed">Ronaldo in stock ★</div>
-                <div class="card-flag">🇵🇹</div>
+                <div class="jersey-placeholder">
+                    <div class="flag-overlay">🇵🇹</div>
+                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="img-label">Photo coming soon</span>
+                </div>
                 <div class="card-body">
                     <div class="card-team">Portugal</div>
                     <div class="card-players">✓ Ronaldo #7 pre-printed (M, L)</div>
@@ -607,26 +593,25 @@
                         <span class="size-chip">Printed: L</span>
                     </div>
                     <div class="card-footer">
-                        <div class="price-block">
+                        <div>
                             <div class="price-blank">$45</div>
                             <div class="price-printed">Printed: $60</div>
                         </div>
-                        <div class="card-actions">
-                            <select class="size-select">
-                                <option value="">Select size</option>
-                                <option>Blank — XL</option>
-                                <option>Ronaldo #7 — M</option>
-                                <option>Ronaldo #7 — L</option>
-                            </select>
-                            <button class="btn-cart" onclick="addToCart('Portugal')">Add to Cart</button>
-                        </div>
+                        <a href="mailto:aurunb50@gmail.com?subject=Order - Portugal Jersey" class="btn-order">Order via Email</a>
                     </div>
                 </div>
             </div>
 
             <!-- Morocco -->
             <div class="product-card">
-                <div class="card-flag">🇲🇦</div>
+                <div class="jersey-placeholder">
+                    <div class="flag-overlay">🇲🇦</div>
+                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="img-label">Photo coming soon</span>
+                </div>
                 <div class="card-body">
                     <div class="card-team">Morocco</div>
                     <div class="card-players"></div>
@@ -637,27 +622,25 @@
                         <span class="size-chip">Blank: XL</span>
                     </div>
                     <div class="card-footer">
-                        <div class="price-block">
+                        <div>
                             <div class="price-blank">$45</div>
                             <div class="price-printed">+ Custom print: $60</div>
                         </div>
-                        <div class="card-actions">
-                            <select class="size-select">
-                                <option value="">Select size</option>
-                                <option>Blank — S</option>
-                                <option>Blank — M</option>
-                                <option>Blank — L</option>
-                                <option>Blank — XL</option>
-                            </select>
-                            <button class="btn-cart" onclick="addToCart('Morocco')">Add to Cart</button>
-                        </div>
+                        <a href="mailto:aurunb50@gmail.com?subject=Order - Morocco Jersey" class="btn-order">Order via Email</a>
                     </div>
                 </div>
             </div>
 
             <!-- France -->
             <div class="product-card">
-                <div class="card-flag">🇫🇷</div>
+                <div class="jersey-placeholder">
+                    <div class="flag-overlay">🇫🇷</div>
+                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="img-label">Photo coming soon</span>
+                </div>
                 <div class="card-body">
                     <div class="card-team">France</div>
                     <div class="card-players"></div>
@@ -666,25 +649,25 @@
                         <span class="size-chip">Blank: XL</span>
                     </div>
                     <div class="card-footer">
-                        <div class="price-block">
+                        <div>
                             <div class="price-blank">$45</div>
                             <div class="price-printed">+ Custom print: $60</div>
                         </div>
-                        <div class="card-actions">
-                            <select class="size-select">
-                                <option value="">Select size</option>
-                                <option>Blank — M</option>
-                                <option>Blank — XL</option>
-                            </select>
-                            <button class="btn-cart" onclick="addToCart('France')">Add to Cart</button>
-                        </div>
+                        <a href="mailto:aurunb50@gmail.com?subject=Order - France Jersey" class="btn-order">Order via Email</a>
                     </div>
                 </div>
             </div>
 
             <!-- Spain -->
             <div class="product-card">
-                <div class="card-flag">🇪🇸</div>
+                <div class="jersey-placeholder">
+                    <div class="flag-overlay">🇪🇸</div>
+                    <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 18 L6 38 L22 46 L22 95 L78 95 L78 46 L94 38 L72 18 Q61 30 50 30 Q39 30 28 18 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M40 19 Q50 32 60 19" fill="none" stroke="#64748b" stroke-width="1.5"/>
+                    </svg>
+                    <span class="img-label">Photo coming soon</span>
+                </div>
                 <div class="card-body">
                     <div class="card-team">Spain</div>
                     <div class="card-players"></div>
@@ -693,18 +676,11 @@
                         <span class="size-chip">Blank: XL</span>
                     </div>
                     <div class="card-footer">
-                        <div class="price-block">
+                        <div>
                             <div class="price-blank">$45</div>
                             <div class="price-printed">+ Custom print: $60</div>
                         </div>
-                        <div class="card-actions">
-                            <select class="size-select">
-                                <option value="">Select size</option>
-                                <option>Blank — S</option>
-                                <option>Blank — XL</option>
-                            </select>
-                            <button class="btn-cart" onclick="addToCart('Spain')">Add to Cart</button>
-                        </div>
+                        <a href="mailto:aurunb50@gmail.com?subject=Order - Spain Jersey" class="btn-order">Order via Email</a>
                     </div>
                 </div>
             </div>
@@ -804,8 +780,11 @@
 
         <div class="pod-cta">
             <h3>Want a specific print?</h3>
-            <p>Email us your team, player, number, and size. Printed jerseys are $60 — blanks are $45. Confirm squad numbers before ordering.</p>
-            <a href="mailto:aurunb50@gmail.com?subject=Jersey Print Add-On Order">Email to Order →</a>
+            <p>Tell us your team, player, number, and size. Printed jerseys are $60 — blanks are $45.</p>
+            <div class="pod-cta-btns">
+                <a href="mailto:aurunb50@gmail.com?subject=Jersey Print Add-On Order">✉ Email Us</a>
+                <a href="tel:+15194007494" class="secondary">📞 (519) 400-7494</a>
+            </div>
         </div>
     </section>
 
@@ -818,18 +797,18 @@
         <div class="steps">
             <div class="step">
                 <div class="step-num">1</div>
-                <h3>Pick Your Kit</h3>
-                <p>Choose your nation, size, and whether you want a blank or a printed player jersey.</p>
+                <h3>Browse &amp; Pick</h3>
+                <p>Find your nation, check available sizes, and decide on blank or printed.</p>
             </div>
             <div class="step">
                 <div class="step-num">2</div>
-                <h3>Contact &amp; Pay</h3>
-                <p>Drop us an email to confirm availability and work out payment. We'll confirm your order same-day.</p>
+                <h3>Call or Email</h3>
+                <p>Reach out to confirm availability and arrange payment. We respond same-day.</p>
             </div>
             <div class="step">
                 <div class="step-num">3</div>
                 <h3>Pick Up or Ship</h3>
-                <p>Local pickup in Windsor, ON, or we'll arrange delivery. Order before June 12, 2026 for tournament-day delivery.</p>
+                <p>Local pickup in Windsor, ON, or we'll arrange delivery. Order before June 12, 2026.</p>
             </div>
         </div>
     </section>
@@ -838,25 +817,14 @@
     <footer>
         <p><strong>AB50 Jerseys</strong> &nbsp;·&nbsp; Windsor, Ontario, Canada</p>
         <p style="margin-top:6px;">
-            <a href="mailto:aurunb50@gmail.com">aurunb50@gmail.com</a>
+            <a href="tel:+15194007494">(519) 400-7494</a>
             &nbsp;·&nbsp;
-            2026 FIFA World Cup replica kits
+            <a href="mailto:aurunb50@gmail.com">aurunb50@gmail.com</a>
         </p>
         <p style="margin-top:16px; font-size:0.8rem; opacity:0.5;">&copy; 2026 AB50 Jerseys. Unofficial replica merchandise. Not affiliated with FIFA.</p>
     </footer>
 
     <script>
-        let cartCount = 0;
-        const cartBtn = document.getElementById('cartBtn');
-
-        function addToCart(team) {
-            cartCount++;
-            cartBtn.textContent = `🛒 Cart (${cartCount})`;
-            cartBtn.style.transform = 'scale(1.12)';
-            setTimeout(() => cartBtn.style.transform = 'scale(1)', 200);
-        }
-
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 const target = document.querySelector(a.getAttribute('href'));
